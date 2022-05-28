@@ -4,6 +4,7 @@ let cors = require('cors');
 let port = process.env.NODE_ENV || 9000;
 
 require('./config/express.js')(app);
+require('./config/database.js')(app);
 
 app.use(cors());
 app.use(require('./router.js'));

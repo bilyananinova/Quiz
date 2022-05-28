@@ -1,15 +1,43 @@
 import './Register.css';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {
+    let navigate = useNavigate();
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        if (e.target.password.value !== e.target.rePassword.value) {
+            return;
+        }
+
+        if (!e.target.password.value || !e.target.rePassword.value || !e.target.name.value|| !e.target.email.value) {
+            return;
+        }
+
+        fetch('http://localhost:9000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: e.target.name.value,
+                email: e.target.email.value,
+                password: e.target.password.value
+            })
+        })
+        .then(() => {
+            navigate('/');
+        })
+    }
 
     return (
         <>
             <h3>Registration Page</h3>
             <section className="form-wrapper">
                 <section className="form-section">
-                    <form className="register-form">
+                    <form className="register-form" onSubmit={handleSubmit}>
                         <label htmlFor="register-name">Name <span className="required">*</span></label>
                         <input type="text" className="form-input" id="register-name" name="name" placeholder="Ivan Ivanov" />
                         <label htmlFor="register-email">Email address<span className="required">*</span></label>
