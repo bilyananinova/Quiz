@@ -1,10 +1,16 @@
 let express = require('express');
 let { register, login } = require('./services/auth');
-let { newCategory } = require('./services/categories');
+let { newCategory, getAll } = require('./services/categories');
 let router = express.Router();
 
 router.get("/", (req, res) => {
-    res.json('Welcome from home');
+    getAll()
+        .then(categories => {
+            res.json(categories);
+        })
+        .catch(err => {
+            console.log(err);
+        })
 });
 
 router.post("/create-quiz", (req, res) => {

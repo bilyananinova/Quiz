@@ -11,4 +11,16 @@ async function newCategory(name) {
     }
 }
 
-module.exports = { newCategory }
+async function getAll() {
+    try {
+
+        return await Category.find({}).lean();
+
+    } catch (err) {
+        throw new Error('Error');
+    }
+}
+
+
+
+module.exports = { newCategory, getAll }
