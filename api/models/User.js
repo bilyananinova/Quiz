@@ -14,9 +14,6 @@ let userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'All fields are required!'],
         minlength: [5, 'The password should be at least 5 characters long'],
-    },
-    isAdmin: {
-        type: Boolean,
     }
 });
 

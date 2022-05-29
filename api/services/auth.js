@@ -32,7 +32,7 @@ async function login(email, password) {
 
     if (!isValidate) {
         throw new Error('Wrong email or password!');
-    } 
+    }
 
     return user;
 }
