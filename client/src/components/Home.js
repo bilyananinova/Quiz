@@ -14,12 +14,6 @@ function Home() {
             })
     }, [])
 
-    // categories.forEach(c => {
-    //     console.log(c);
-    //     console.log(c.name);
-    //     console.log(c._id);
-    // })
-
     return (
         <>
             <section className="categories-section">
@@ -27,7 +21,7 @@ function Home() {
                     categories
                         .map((c, i) =>
                             <CategoryCard
-                                key={setCategories._id}
+                                key={c._id}
                                 cat={c} />)
                 }
             </section>

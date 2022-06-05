@@ -1,6 +1,7 @@
 let express = require('express');
 let { register, login } = require('./services/auth');
 let { newCategory, getAll } = require('./services/categories');
+let { newQuiz } = require('./services/quiz');
 let router = express.Router();
 
 router.get("/", (req, res) => {
@@ -14,13 +15,24 @@ router.get("/", (req, res) => {
 });
 
 router.post("/create-quiz", (req, res) => {
-    newCategory(req.body.category)
-        .then(category => {
-            res.json(category);
-        })
-        .catch(err => {
-            console.log(err);
-        })
+ 
+    if (req.body.category) {
+        newCategory(req.body.category)
+            .then(category => {
+                res.json(category);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    } else {
+        newQuiz(req.body) 
+            .then(result => {
+                res.json(result);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 });
 
 router.post("/login", (req, res) => {
