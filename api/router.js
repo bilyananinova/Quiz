@@ -1,7 +1,8 @@
+const { json } = require('express');
 let express = require('express');
 let { register, login } = require('./services/auth');
 let { newCategory, getAll } = require('./services/categories');
-let { newQuiz } = require('./services/quiz');
+let { newQuiz, getQuizBySubject } = require('./services/quiz');
 let router = express.Router();
 
 router.get("/", (req, res) => {
@@ -14,10 +15,22 @@ router.get("/", (req, res) => {
         })
 });
 
+router.get("/category/:category", (req, res) => {
+
+    getQuizBySubject(req.params.category)
+        .then(result => {
+            res.json(result)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+
 router.post("/create-quiz", (req, res) => {
- 
-    if (req.body.category) {
-        newCategory(req.body.category)
+
+    if (req.body.name) {
+
+        newCategory(req.body.name)
             .then(category => {
                 res.json(category);
             })
@@ -25,7 +38,7 @@ router.post("/create-quiz", (req, res) => {
                 console.log(err);
             })
     } else {
-        newQuiz(req.body) 
+        newQuiz(req.body)
             .then(result => {
                 res.json(result);
             })

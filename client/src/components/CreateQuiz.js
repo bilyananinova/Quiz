@@ -16,7 +16,7 @@ function CreateQuiz() {
         fetch('http://localhost:9000/')
             .then((response) => response.json())
             .then((res) => setSubjects(res))
-    }, [])
+    }, [subjects])
 
     function createNewSubject(e) {
         e.preventDefault();
@@ -27,24 +27,24 @@ function CreateQuiz() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                subject: e.target.newSubject.value
+                name: e.target.newSubject.value
             })
         })
             .then(() => {
                 e.target.newSubject.value = '';
             })
     }
-    
+
     function postQuestion(e) {
         e.preventDefault();
-        
+
         if (e.target.question.value === '' &&
-        e.target.answers[0].value === '' &&
-        e.target.answers[1].value === '' &&
-        e.target.answers[2].value === '') {
+            e.target.answers[0].value === '' &&
+            e.target.answers[1].value === '' &&
+            e.target.answers[2].value === '') {
             return;
         }
-        
+
         setQuestions((questions) => [
             ...questions,
             {
