@@ -124,7 +124,6 @@ function CreateQuiz() {
                     </div>
                 </form>
 
-
                 <button type="button" className="create-quiz-button" onClick={postQuiz}>Create Quiz</button>
 
             </div>

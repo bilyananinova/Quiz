@@ -15,9 +15,9 @@ router.get("/", (req, res) => {
         })
 });
 
-router.get("/category/:category", (req, res) => {
+router.get("/subject/:id", (req, res) => {
 
-    getQuizBySubject(req.params.category)
+    getQuizBySubject(req.params.id)
         .then(result => {
             res.json(result)
         })

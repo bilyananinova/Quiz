@@ -1,7 +1,7 @@
 import './Home.css';
 import React from 'react';
 
-import CategoryCard from './CategoryCard';
+import CategoryCard from './categories/CategoryCard';
 
 function Home() {
     let [categories, setCategories] = React.useState([]);

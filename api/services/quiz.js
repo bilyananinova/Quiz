@@ -1,4 +1,3 @@
-const Category = require('../models/Category');
 let Quiz = require('../models/Quiz');
 
 async function newQuiz(body) {
@@ -11,11 +10,10 @@ async function newQuiz(body) {
     }
 }
 
-async function getQuizBySubject(cat) {
+async function getQuizBySubject(id) {
 
     try {
-        let category = await Category.findOne({ link: cat }).lean();
-        let quizzes = await Quiz.find({ subject: category._id }).populate('subject').lean();
+        let quizzes = await Quiz.find({ subject: id }).populate('subject').lean();
         return quizzes;
     } catch (err) {
         throw new Error(err.message);

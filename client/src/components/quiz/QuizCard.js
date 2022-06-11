@@ -7,7 +7,7 @@ function QuizCard({ quiz }) {
         <>
             <div className="quiz-card">
                 <h3>{quiz.title}</h3>
-                <Link to={`/${quiz.subject.link}/${quiz._id}`} className="go-to-button">Go To Quizzes</Link>
+                <Link to={`/quiz/${quiz._id}`} className="go-to-button">Start</Link>
             </div>
         </>
     )

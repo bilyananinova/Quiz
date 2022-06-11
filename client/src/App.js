@@ -6,8 +6,8 @@ import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 
 import Home from './components/Home';
-import Quizzes from './components/Quizzes';
-import CreateQuiz from './components/CreateQuiz';
+import Quizzes from './components/quiz/Quizzes';
+import CreateQuiz from './components/quiz/CreateQuiz';
 
 import Login from './components/user/Login';
 import Register from './components/user/Register';
@@ -22,7 +22,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/category/:category" element={<Quizzes />} />
+          <Route path="/subject/:id" element={<Quizzes />} />
           <Route path="/create-quiz" element={<CreateQuiz />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

@@ -8,7 +8,7 @@ function CategoryCard({ cat }) {
         <>
             <div className="category-card">
                 <h3>{cat.name}</h3>
-                <Link to={`/category/${link}`} className="go-to-button">Go To Quizzes</Link>
+                <Link to={`/subject/${cat._id}`} className="go-to-button">Go To Quizzes</Link>
             </div>
         </>
     )
