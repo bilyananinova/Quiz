@@ -20,4 +20,14 @@ async function getQuizBySubject(id) {
     }
 }
 
-module.exports = { newQuiz, getQuizBySubject }
+async function getQuizById(id) {
+
+    try {
+        let quiz = await Quiz.findById(id).lean();
+        return quiz;
+    } catch (err) {
+        throw new Error(err.message);
+    }
+}
+
+module.exports = { newQuiz, getQuizBySubject, getQuizById }

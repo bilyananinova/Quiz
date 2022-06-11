@@ -2,7 +2,7 @@ const { json } = require('express');
 let express = require('express');
 let { register, login } = require('./services/auth');
 let { newCategory, getAll } = require('./services/categories');
-let { newQuiz, getQuizBySubject } = require('./services/quiz');
+let { newQuiz, getQuizBySubject, getQuizById } = require('./services/quiz');
 let router = express.Router();
 
 router.get("/", (req, res) => {
@@ -18,6 +18,17 @@ router.get("/", (req, res) => {
 router.get("/subject/:id", (req, res) => {
 
     getQuizBySubject(req.params.id)
+        .then(result => {
+            res.json(result)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+
+router.get("/quiz/:id", (req, res) => {
+
+    getQuizById(req.params.id)
         .then(result => {
             res.json(result)
         })

@@ -6,6 +6,7 @@ import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 
 import Home from './components/Home';
+import Quiz from './components/quiz/Quiz';
 import Quizzes from './components/quiz/Quizzes';
 import CreateQuiz from './components/quiz/CreateQuiz';
 
@@ -22,8 +23,11 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+
+          <Route path="/quiz/:id" element={<Quiz />} />
           <Route path="/subject/:id" element={<Quizzes />} />
           <Route path="/create-quiz" element={<CreateQuiz />} />
+          
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>

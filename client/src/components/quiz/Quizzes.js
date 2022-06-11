@@ -7,7 +7,7 @@ import QuizCard from './QuizCard';
 function Quizzes() {
     let [list, setList] = React.useState([]);
     let params = useParams();
-    console.log(params);
+
     React.useEffect(() => {
         fetch(`http://localhost:9000/subject/${params.id}`)
             .then(res => res.json())
