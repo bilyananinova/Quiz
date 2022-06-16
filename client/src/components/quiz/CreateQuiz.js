@@ -7,8 +7,9 @@ function CreateQuiz() {
     let [subject, setSubject] = React.useState('');
     let [questions, setQuestions] = React.useState([
         {
-            content: '',
-            answers: []
+            question: '',
+            answers: [],
+            correctAnswer: '',
         }
     ])
 
@@ -53,13 +54,15 @@ function CreateQuiz() {
                     e.target.answers[0].value,
                     e.target.answers[1].value,
                     e.target.answers[2].value,
-                ]
+                ],
+                correctAnswer: e.target.correct.value,
             }
         ])
-    }
 
+    }
+    
     function postQuiz(e) {
-        questions = questions.slice(1)
+        questions = questions.slice(1);
 
         fetch('http://localhost:9000/create-quiz', {
             method: 'POST',
@@ -119,6 +122,13 @@ function CreateQuiz() {
                         <input type="text" id="create-quiz-answers" name="answers" />
                         <input type="text" id="create-quiz-answers" name="answers" />
                         <input type="text" id="create-quiz-answers" name="answers" />
+
+                        <div className="correct-answer-div">
+                            <p>Correct Answer</p>
+                            <input type="radio" name="correct" value='0' /> A)
+                            <input type="radio" name="correct" value='1' /> B)
+                            <input type="radio" name="correct" value='2' /> C)
+                        </div>
 
                         <button type="submit" className="create-question-button" >Save Question</button>
                     </div>

@@ -15,7 +15,7 @@ function Quiz() {
                 setQuiz(result);
                 setQuestionsArr(result.questions);
             })
-    }, [])
+    }, [params.id]);
 
     return (
         <>

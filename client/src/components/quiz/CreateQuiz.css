@@ -79,6 +79,18 @@
     outline: none;
 }
 
+.correct-answer-div{
+    margin: 1em auto;
+}
+
+.correct-answer-div input {
+    margin-left: 2em;
+}
+
+.correct-answer-div > input:nth-child(2)  {
+    margin-left: 0;
+}
+
 .create-quiz-button {
     width: 50%;
     margin-top: 0.5em;

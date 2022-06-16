@@ -1,4 +1,3 @@
-const { json } = require('express');
 let express = require('express');
 let { register, login } = require('./services/auth');
 let { newCategory, getAll } = require('./services/categories');
@@ -40,7 +39,6 @@ router.get("/quiz/:id", (req, res) => {
 router.post("/create-quiz", (req, res) => {
 
     if (req.body.name) {
-
         newCategory(req.body.name)
             .then(category => {
                 res.json(category);

@@ -10,7 +10,11 @@ let QuizSchema = new mongoose.Schema({
                     type: String,
                     required: true
                 }
-            ]
+            ],
+            correctAnswer: {
+                type: String,
+                required: true
+            }
         }
     ],
     subject: {
