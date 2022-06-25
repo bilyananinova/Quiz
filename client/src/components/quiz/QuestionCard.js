@@ -1,19 +1,18 @@
 import './QuestionCard.css';
 import React from 'react';
 
+let count = 0;
+
 function QuestionCard(props) {
-    let [state, setState] = React.useState({ score: 0 });
-
+    let [state, setState] = React.useState(0);
     function getAnswer(currentAnswer) {
-        if (currentAnswer == props.quest.correctAnswer) {
-            setState({
-                score: state.score +1,
-            });
 
+        if (currentAnswer == props.quest.correctAnswer) {
+            count += 1;
+            state = count;
+            setState(state);
         }
     }
-
-    console.log(state);
 
     return (
         <>
