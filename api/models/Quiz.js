@@ -20,7 +20,7 @@ let QuizSchema = new mongoose.Schema({
     subject: {
         required: true,
         ref: 'Category',
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
     }
 })
 

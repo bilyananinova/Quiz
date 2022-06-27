@@ -5,6 +5,7 @@ let count = 0;
 
 function QuestionCard(props) {
     let [state, setState] = React.useState(0);
+    
     function getAnswer(currentAnswer) {
 
         if (currentAnswer == props.quest.correctAnswer) {

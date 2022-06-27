@@ -3,9 +3,6 @@ let mongoose = require('mongoose');
 let categorySchema = new mongoose.Schema({
     name: {
         type: String
-    },
-    link: {
-        type: String
     }
 });
 

@@ -1,7 +1,9 @@
 import './CreateQuiz.css';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function CreateQuiz() {
+    let navigate = useNavigate();
     let [subjects, setSubjects] = React.useState([]);
     let [title, setTitle] = React.useState('');
     let [subject, setSubject] = React.useState('');
@@ -37,6 +39,7 @@ function CreateQuiz() {
     }
 
     function postQuestion(e) {
+
         e.preventDefault();
 
         if (e.target.question.value === '' &&
@@ -60,7 +63,7 @@ function CreateQuiz() {
         ])
 
     }
-    
+
     function postQuiz(e) {
         questions = questions.slice(1);
 
@@ -74,7 +77,9 @@ function CreateQuiz() {
                 title,
                 questions
             })
-        })
+        });
+
+        navigate('/');
     }
 
     return (
@@ -125,9 +130,9 @@ function CreateQuiz() {
 
                         <div className="correct-answer-div">
                             <p>Correct Answer</p>
-                            <input type="radio" name="correct" value='0' /> A)
-                            <input type="radio" name="correct" value='1' /> B)
-                            <input type="radio" name="correct" value='2' /> C)
+                            <input type="radio" name="correct" value='0' /> A
+                            <input type="radio" name="correct" value='1' /> B
+                            <input type="radio" name="correct" value='2' /> C
                         </div>
 
                         <button type="submit" className="create-question-button" >Save Question</button>

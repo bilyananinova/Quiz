@@ -16,12 +16,14 @@ function Login() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify({
                 name: e.target.name.value,
                 email: e.target.email.value,
                 password: e.target.password.value
-            })
+            }),
+            credentials: "include",
         })
         .then(() => {
             navigate('/');

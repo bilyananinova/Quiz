@@ -12,7 +12,7 @@ function Register() {
             return;
         }
 
-        if (!e.target.password.value || !e.target.rePassword.value || !e.target.name.value|| !e.target.email.value) {
+        if (!e.target.password.value || !e.target.rePassword.value || !e.target.name.value || !e.target.email.value) {
             return;
         }
 
@@ -20,16 +20,18 @@ function Register() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify({
                 name: e.target.name.value,
                 email: e.target.email.value,
                 password: e.target.password.value
+            }),
+            credentials: "include",
+        })
+            .then(() => {
+                navigate('/');
             })
-        })
-        .then(() => {
-            navigate('/');
-        })
     }
 
     return (

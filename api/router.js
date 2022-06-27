@@ -61,6 +61,8 @@ router.post("/login", (req, res) => {
     let { email, password } = req.body;
     login(email, password)
         .then(user => {
+            res.cookie('cookie', 'test_cookie');
+            console.log(req.cookies);
             res.json(user);
         })
         .catch(err => {
@@ -73,6 +75,7 @@ router.post("/register", (req, res) => {
 
     register(name, email, password)
         .then(user => {
+            res.cookie('cookie', 'cookie-val');
             res.json(user);
         })
         .catch(err => {
