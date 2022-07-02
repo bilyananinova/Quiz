@@ -1,8 +1,8 @@
 let bcrypt = require('bcrypt');
-let salt = 10;
+let { SALT } = require('../config/constants');
 
 function createHash(plainPassword) {
-    return bcrypt.hashSync(plainPassword, salt);
+    return bcrypt.hashSync(plainPassword, SALT);
 }
 
 function validatePassword(plainPassword, hash) {

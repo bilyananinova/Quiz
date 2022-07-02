@@ -25,9 +25,9 @@ function Login() {
             }),
             credentials: "include",
         })
-        .then(() => {
-            navigate('/');
-        });
+            .then(() => {
+                navigate('/');
+            });
     }
 
     return (

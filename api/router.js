@@ -2,6 +2,8 @@ let express = require('express');
 let { register, login } = require('./services/auth');
 let { newCategory, getAll } = require('./services/categories');
 let { newQuiz, getQuizBySubject, getQuizById } = require('./services/quiz');
+let { jwtSign } = require('./utils/jwt');
+let { COOKIE_NAME } = require('./config/constants');
 let router = express.Router();
 
 router.get("/", (req, res) => {
@@ -61,8 +63,7 @@ router.post("/login", (req, res) => {
     let { email, password } = req.body;
     login(email, password)
         .then(user => {
-            res.cookie('cookie', 'test_cookie');
-            console.log(req.cookies);
+            res.cookie(COOKIE_NAME, jwtSign(user));
             res.json(user);
         })
         .catch(err => {
@@ -75,7 +76,7 @@ router.post("/register", (req, res) => {
 
     register(name, email, password)
         .then(user => {
-            res.cookie('cookie', 'cookie-val');
+            res.cookie(COOKIE_NAME, jwtSign(user));
             res.json(user);
         })
         .catch(err => {

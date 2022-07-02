@@ -1,7 +1,8 @@
 let mongoose = require('mongoose');
+let { CONNECTION_STRING } = require('./constants');
 
 function initDb() {
-    return mongoose.connect('mongodb://localhost:27017/quiz-react');
+    return mongoose.connect(CONNECTION_STRING);
 }
 
 module.exports = initDb;

@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 let cors = require('cors');
 let cookieParser = require('cookie-parser');
-let port = process.env.NODE_ENV || 9000;
+let { PORT } = require('./config/constants');
 
 require('./config/express.js')(app);
 require('./config/database.js')(app);
@@ -14,6 +14,6 @@ app.use(cors({
 app.use(cookieParser());
 app.use(require('./router.js'));
 
-app.listen(port, () => {
-    console.log(`App is running on port ${port}...`);
+app.listen(PORT, () => {
+    console.log(`App is running on port ${PORT}...`);
 });
