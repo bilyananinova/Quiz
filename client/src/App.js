@@ -12,6 +12,7 @@ import CreateQuiz from './components/quiz/CreateQuiz';
 
 import Login from './components/user/Login';
 import Register from './components/user/Register';
+import Logout from './components/user/Logout';
 
 function App() {
   return (
@@ -27,9 +28,10 @@ function App() {
           <Route path="/quiz/:id" element={<Quiz />} />
           <Route path="/subject/:id" element={<Quizzes />} />
           <Route path="/create-quiz" element={<CreateQuiz />} />
-          
+
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/logout" element={<Logout />}/>
         </Routes>
 
       </main>

@@ -61,9 +61,10 @@ router.post("/create-quiz", (req, res) => {
 
 router.post("/login", (req, res) => {
     let { email, password } = req.body;
+
     login(email, password)
         .then(user => {
-            res.cookie(COOKIE_NAME, jwtSign(user));
+            res.cookie(COOKIE_NAME, jwtSign(user), { httpOnly: true });
             res.json(user);
         })
         .catch(err => {
@@ -76,12 +77,17 @@ router.post("/register", (req, res) => {
 
     register(name, email, password)
         .then(user => {
-            res.cookie(COOKIE_NAME, jwtSign(user));
+            res.cookie(COOKIE_NAME, jwtSign(user), { httpOnly: true });
             res.json(user);
         })
         .catch(err => {
             console.log(err);
         })
+});
+
+router.get('/logout', (req, res) => {
+    res.clearCookie(COOKIE_NAME);
+    return res.redirect('/');
 });
 
 module.exports = router;
