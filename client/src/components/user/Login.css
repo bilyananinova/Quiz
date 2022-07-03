@@ -11,7 +11,7 @@
 }
 
 .login-form a { 
-    color: #ae00ff;
+    color: var(--main-a-color);
 }
 
 .login-form label {
@@ -24,19 +24,16 @@
     width: 100%;
     margin: 1em auto;
     padding: 0.8em 2.5em;
-    font-family: 'Macondo', cursive;
-    font-size: 18px;
-    border-width: 2px;
-    border-style: solid;
-    border-image: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec) 1;
-    border-radius: 0.3em;    
-    background-image: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec);
+    font-family: var(--main-font-family);
+    font-size: var(--button-font-size);
+    border: none; 
+    background-image: var(--main-background-color);
 }
 
 .login-button:hover,
 .login-button:focus {
     cursor: pointer;
-    background: #42eeaf;
+    background: var(--button-hover-color);
 }
 
 .login-form input {
@@ -44,7 +41,7 @@
     width: 100%;
     border-width: 2px;
     border-style: solid;
-    border-image: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec) 1;
+    border-image: var(--border-color) 1;
     border-radius: 0.3em; 
 }
 

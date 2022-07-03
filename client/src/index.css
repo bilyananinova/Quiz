@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+
+:root {
+    --main-font-family: 'Macondo', cursive;
+    --main-font-size: 20px;
+    --main-background-color: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec);
+    --main-a-color: #ae00ff;
+
+    --border-color:linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec);
+
+    --button-font-size: 18px;
+    --button-hover-color: #42eeaf;
+}

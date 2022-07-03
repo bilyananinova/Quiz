@@ -14,25 +14,22 @@
 
 .create-category-button {
     padding: 0.5em 2.5em;
-    font-family: 'Macondo', cursive;
-    font-size: 18px;
-    border-width: 2px;
-    border-style: solid;
-    border-image: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec) 1;
-    border-radius: 0.3em;    
-    background-image: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec);
+    font-family: var(--main-font-family);
+    font-size: var(--button-font-size);
+    border: none;
+    background-image: var(--main-background-color);
 }
 
 .create-category-button:hover,
 .create-category-button:focus {
     cursor: pointer;
-    background: #42eeaf;
+    background: var(--button-hover-color);
 }
 
 .create-category-form input {
     border-width: 2px;
     border-style: solid;
-    border-image: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec) 1;
+    border-image: var(--border-color) 1;
     border-radius: 0.3em; 
 }
 
@@ -68,7 +65,7 @@
     padding: 0.5em 0;
     border-width: 2px;
     border-style: solid;
-    border-image: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec) 1;
+    border-image: var(--border-color) 1;
     border-radius: 0.3em; 
 }
 
@@ -99,13 +96,10 @@
 .create-quiz-button,
 .create-question-button {
     padding: 0.5em 2.5em;
-    font-family: 'Macondo', cursive;
-    font-size: 18px;
-    border-width: 2px;
-    border-style: solid;
-    border-image: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec) 1;
-    border-radius: 0.3em;    
-    background-image: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec);
+    font-family: var(--main-font-family);
+    font-size: var(--button-font-size);
+    border: none;   
+    background-image: var(--main-background-color);
 }
 
 .create-quiz-button:hover,
@@ -113,14 +107,5 @@
 .create-question-button:hover,
 .create-question-button:focus {
     cursor: pointer;
-}
-
-.create-question-button:hover,
-.create-question-button:focus {
-    background: #42eeaf;
-}
-
-.create-quiz-button:hover,
-.create-quiz-button:focus {
-    background: #fdff6d;
+    background: var(--button-hover-color);
 }

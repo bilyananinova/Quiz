@@ -1,6 +1,6 @@
 .site-footer {
     text-align: center;
-    background-image: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec);
+    background-image: var(--main-background-color);
 }
 
 .copyright p {
