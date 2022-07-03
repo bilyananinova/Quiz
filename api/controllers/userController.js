@@ -30,8 +30,9 @@ router.post("/register", (req, res) => {
         })
 });
 
-router.get("/logout", (req, res) => {
-    res.clearCookie(COOKIE_NAME);
+router.get('/logout', (req, res) => {
+
+    res.clearCookie('userCookie', { path: '/', domain: 'localhost' });
     return res.redirect('/');
 });
 

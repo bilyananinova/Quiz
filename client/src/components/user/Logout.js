@@ -5,7 +5,10 @@ function Logout() {
     let navigate = useNavigate();
     React.useEffect(() => {
 
-        fetch('http://localhost:9000/user/logout')
+        fetch('http://localhost:9000/user/logout', {
+            method: 'GET',
+            credentials: 'include'
+        })
             .then(() => {
                 navigate('/');
             });
