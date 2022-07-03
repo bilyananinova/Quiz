@@ -12,7 +12,7 @@ function Login() {
             return;
         }
 
-        fetch('http://localhost:9000/login', {
+        fetch('http://localhost:9000/user/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ function Login() {
                         <label htmlFor="login-password">Password<span className="required">*</span></label>
                         <input type="password" className="form-input" id="login-password" name="password" placeholder="******" />
                         <button type="submit" className="login-button">Login</button>
-                        <p>Don't have an account? <Link to="/register">Register</Link> now.</p>
+                        <p>Don't have an account? <Link to="/user/register">Register</Link> now.</p>
                     </form>
                 </section>
             </div>

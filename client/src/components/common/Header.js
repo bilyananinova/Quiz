@@ -16,9 +16,9 @@ function Header() {
                 <ul>
                     <li><Link to="/" >Home</Link></li>
                     <li><Link to="/create-quiz" >Create Quiz</Link></li>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/register" >Register</Link></li>
-                    <li><Link to="/logout">Logout</Link></li>
+                    <li><Link to="/user/login">Login</Link></li>
+                    <li><Link to="/user/register" >Register</Link></li>
+                    <li><Link to="/user/logout">Logout</Link></li>
                 </ul>
             </nav>
         </>

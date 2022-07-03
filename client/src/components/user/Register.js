@@ -16,7 +16,7 @@ function Register() {
             return;
         }
 
-        fetch('http://localhost:9000/register', {
+        fetch('http://localhost:9000/user/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ function Register() {
                         <label htmlFor="register-repeat-password">Repeat Password <span className="required">*</span></label>
                         <input type="password" className="form-input" id="register-repeat-password" name="rePassword" placeholder="******" />
                         <button type="submit" className="register-button">Register</button>
-                        <p>Already have an account... <Link to="/login">Login</Link> now.</p>
+                        <p>Already have an account... <Link to="/user/login">Login</Link> now.</p>
                     </form>
                 </section>
             </section>

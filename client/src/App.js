@@ -29,9 +29,9 @@ function App() {
           <Route path="/subject/:id" element={<Quizzes />} />
           <Route path="/create-quiz" element={<CreateQuiz />} />
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/logout" element={<Logout />}/>
+          <Route path="/user/login" element={<Login />} />
+          <Route path="/user/register" element={<Register />} />
+          <Route path="/user/logout" element={<Logout />}/>
         </Routes>
 
       </main>
