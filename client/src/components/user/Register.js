@@ -2,6 +2,8 @@ import './Register.css';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { register } from '../../services/userServices';
+
 function Register() {
     let navigate = useNavigate();
 
@@ -16,19 +18,7 @@ function Register() {
             return;
         }
 
-        fetch('http://localhost:9000/user/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Credentials": true,
-            },
-            body: JSON.stringify({
-                name: e.target.name.value,
-                email: e.target.email.value,
-                password: e.target.password.value
-            }),
-            credentials: "include",
-        })
+        register(e.target.name.value, e.target.email.value, e.target.password.value)
             .then(() => {
                 navigate('/');
             })

@@ -1,14 +1,14 @@
 import './Home.css';
 import React from 'react';
 
-import CategoryCard from './categories/CategoryCard';
+import CategoryCard from './CategoryCard';
+import { getAllSubjects } from '../../services/quizServices';
 
 function Home() {
     let [categories, setCategories] = React.useState([]);
 
     React.useEffect(() => {
-        fetch('http://localhost:9000/')
-            .then(res => res.json())
+        getAllSubjects()
             .then(result => {
                 setCategories(result);
             })

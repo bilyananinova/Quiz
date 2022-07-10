@@ -2,6 +2,8 @@ import './CreateQuiz.css';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { getAllSubjects, postNewSubject, postNewQuiz } from '../../../services/quizServices';
+
 function CreateQuiz() {
     let navigate = useNavigate();
     let [subjects, setSubjects] = React.useState([]);
@@ -16,23 +18,14 @@ function CreateQuiz() {
     ])
 
     React.useEffect(() => {
-        fetch('http://localhost:9000/')
-            .then((response) => response.json())
+        getAllSubjects()
             .then((res) => setSubjects(res))
-    }, [subjects])
+    }, [subjects]);
 
     function createNewSubject(e) {
         e.preventDefault();
 
-        fetch('http://localhost:9000/create-quiz', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: e.target.newSubject.value
-            })
-        })
+        postNewSubject(e.target.newSubject.value)
             .then(() => {
                 e.target.newSubject.value = '';
             })
@@ -67,19 +60,10 @@ function CreateQuiz() {
     function postQuiz(e) {
         questions = questions.slice(1);
 
-        fetch('http://localhost:9000/create-quiz', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                subject,
-                title,
-                questions
+        postNewQuiz(subject, title, questions)
+            .then(() => {
+                navigate('/');
             })
-        });
-
-        navigate('/');
     }
 
     return (

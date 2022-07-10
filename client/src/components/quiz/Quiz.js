@@ -1,7 +1,8 @@
 import './Quiz.css'
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import QuestionCard from './QuestionCard';
+import { getOneQuizById } from '../../services/quizServices';
 
 function Quiz() {
     let params = useParams();
@@ -9,8 +10,7 @@ function Quiz() {
     let [questionsArr, setQuestionsArr] = React.useState([]);
 
     React.useEffect(() => {
-        fetch(`http://localhost:9000/quiz/${params.id}`)
-            .then(res => res.json())
+        getOneQuizById(params.id)
             .then(result => {
                 setQuiz(result);
                 setQuestionsArr(result.questions);
@@ -28,15 +28,6 @@ function Quiz() {
                             quest={q} />
                     )
                 }
-                <div className="admin-btns">
-
-                    <Link
-                        to={`/quiz/${params.id}/edit`}
-                        className="edit-btn">
-                        Edit
-                </Link>
-                    <button className="delete-btn">Delete</button>
-                </div>
             </div>
         </>
     )

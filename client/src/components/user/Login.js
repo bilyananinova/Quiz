@@ -2,6 +2,8 @@ import './Login.css';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { login } from '../../services/userServices';
+
 function Login() {
     let navigate = useNavigate();
 
@@ -12,22 +14,11 @@ function Login() {
             return;
         }
 
-        fetch('http://localhost:9000/user/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Credentials": true,
-            },
-            body: JSON.stringify({
-                name: e.target.name.value,
-                email: e.target.email.value,
-                password: e.target.password.value
-            }),
-            credentials: "include",
-        })
+        login(e.target.email.value, e.target.password.value)
             .then(() => {
                 navigate('/');
             });
+
     }
 
     return (

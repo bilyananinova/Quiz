@@ -5,11 +5,10 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 
-import Home from './components/Home';
+import Home from './components/categories/Home';
 import Quiz from './components/quiz/Quiz';
-import QuizEdit from './components/quiz/QuizEdit';
-import Quizzes from './components/quiz/Quizzes';
-import CreateQuiz from './components/quiz/CreateQuiz';
+import Quizzes from './components/quiz/all-quiz-by-subject/Quizzes';
+import CreateQuiz from './components/quiz/create-quiz/CreateQuiz';
 
 import Login from './components/user/Login';
 import Register from './components/user/Register';
@@ -27,7 +26,6 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/quiz/:id" element={<Quiz />} />
-          <Route path="/quiz/:id/edit" element={<QuizEdit />} />
           <Route path="/subject/:id" element={<Quizzes />} />
           <Route path="/create-quiz" element={<CreateQuiz />} />
 

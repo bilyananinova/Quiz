@@ -1,18 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { logout } from '../../services/userServices';
+
 function Logout() {
     let navigate = useNavigate();
-    React.useEffect(() => {
 
-        fetch('http://localhost:9000/user/logout', {
-            method: 'GET',
-            credentials: 'include'
-        })
+    React.useEffect(() => {
+        logout()
             .then(() => {
                 navigate('/');
             });
-    }, [])
+    }, []);
 
 }
 
