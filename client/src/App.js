@@ -7,6 +7,7 @@ import Footer from './components/common/Footer';
 
 import Home from './components/Home';
 import Quiz from './components/quiz/Quiz';
+import QuizEdit from './components/quiz/QuizEdit';
 import Quizzes from './components/quiz/Quizzes';
 import CreateQuiz from './components/quiz/CreateQuiz';
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/quiz/:id" element={<Quiz />} />
+          <Route path="/quiz/:id/edit" element={<QuizEdit />} />
           <Route path="/subject/:id" element={<Quizzes />} />
           <Route path="/create-quiz" element={<CreateQuiz />} />
 

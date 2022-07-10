@@ -5,7 +5,7 @@ let count = 0;
 
 function QuestionCard(props) {
     let [state, setState] = React.useState(0);
-    
+
     function getAnswer(currentAnswer) {
 
         if (currentAnswer == props.quest.correctAnswer) {
@@ -17,7 +17,7 @@ function QuestionCard(props) {
 
     return (
         <>
-            <div className="quest-div">
+            <div className="question-div">
                 <p>{props.quest.question}</p>
                 <div className="answers-div">
                     <input type="radio" value='0' onClick={(e => getAnswer(e.target.value))} />{props.quest.answers[0]}

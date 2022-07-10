@@ -3,7 +3,7 @@ let { getQuizBySubject } = require('../services/quiz');
 let router = express.Router();
 
 router.get("/:id", (req, res) => {
-    console.log(req.params.id);
+
     getQuizBySubject(req.params.id)
         .then(result => {
             res.json(result)

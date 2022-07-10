@@ -32,7 +32,7 @@ router.post("/register", (req, res) => {
 
 router.get('/logout', (req, res) => {
 
-    res.clearCookie('userCookie', { path: '/', domain: 'localhost' });
+    res.clearCookie(COOKIE_NAME);
     return res.redirect('/');
 });
 

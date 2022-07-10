@@ -1,6 +1,6 @@
 import './Quiz.css'
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import QuestionCard from './QuestionCard';
 
 function Quiz() {
@@ -19,7 +19,7 @@ function Quiz() {
 
     return (
         <>
-            <div>
+            <div className="quiz-div">
                 <h3>{quiz.title}</h3>
                 {
                     questionsArr.map((q, i) =>
@@ -28,6 +28,15 @@ function Quiz() {
                             quest={q} />
                     )
                 }
+                <div className="admin-btns">
+
+                    <Link
+                        to={`/quiz/${params.id}/edit`}
+                        className="edit-btn">
+                        Edit
+                </Link>
+                    <button className="delete-btn">Delete</button>
+                </div>
             </div>
         </>
     )
