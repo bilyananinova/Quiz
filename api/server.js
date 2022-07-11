@@ -4,6 +4,7 @@ let cors = require('cors');
 let cookieParser = require('cookie-parser');
 
 let { PORT } = require('./config/constants');
+let { auth } = require('./middlewares/auth');
 
 require('./config/express.js')(app);
 require('./config/database.js')(app);
@@ -13,7 +14,7 @@ app.use(cors({
     credentials: true,
 }));
 app.use(cookieParser());
-
+app.use(auth);
 app.use(require('./router.js'));
 
 app.listen(PORT, () => {

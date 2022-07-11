@@ -1,7 +1,10 @@
 let express = require('express');
+let router = express.Router();
+
+let { isAdmin } = require('./middlewares/auth');
+
 let { newCategory, getAll } = require('./services/categories');
 let { newQuiz } = require('./services/quiz');
-let router = express.Router();
 
 let quizController = require('./controllers/quizController');
 let subjectController = require('./controllers/subjectController');

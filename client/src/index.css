@@ -10,5 +10,6 @@
 
     --button-font-size: 18px;
     --button-hover-color: #42eeaf;
+    --edit-button-hover-color: #ffff00cb;
     --delete-button-hover-color: #ff0000;
 }
