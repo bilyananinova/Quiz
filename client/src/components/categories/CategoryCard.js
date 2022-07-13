@@ -2,7 +2,7 @@ import './CategoryCard.css'
 import { Link } from 'react-router-dom';
 
 function CategoryCard({ cat }) {
-    let link = cat.name.split(',').map(w => w.trim().toLowerCase()).join('-')
+    let link = cat.name.split(',').map(w => w.trim().toLowerCase()).join('-');
 
     return (
         <>

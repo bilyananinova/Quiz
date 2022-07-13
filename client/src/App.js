@@ -6,7 +6,7 @@ import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 
 import Home from './components/categories/Home';
-import Quiz from './components/quiz/Quiz';
+import Quiz from './components/quiz/quiz-by-id/Quiz';
 import Quizzes from './components/quiz/all-quiz-by-subject/Quizzes';
 import CreateQuiz from './components/quiz/create-quiz/CreateQuiz';
 
