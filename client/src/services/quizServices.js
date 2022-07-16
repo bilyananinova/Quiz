@@ -22,34 +22,45 @@ function getOneQuizById(id) {
         .then(res => res.json())
 }
 
-function postNewSubject(subject) {
+function createNewSubject(subject) {
     return fetch(`http://${host}:${port}/create-quiz`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            name: subject
-        }),
+        body: JSON.stringify({ name: subject }),
         credentials: "include"
     })
 }
 
-function postNewQuiz(subject, title, questions) {
+function createNewQuiz(subject, title) {
     return fetch(`http://${host}:${port}/create-quiz`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ subject, title }),
+        credentials: "include"
+    })
+}
+
+function addQuestions(questions, id) {
+    return fetch(`http://${host}:${port}/add-quiz/${id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            subject,
-            title,
-            questions
-        }),
+        body: JSON.stringify({ questions }),
         credentials: "include"
     })
 }
 
 
-
-export { getAllSubjects, getAllQuizzesBySubjectId, getOneQuizById, postNewSubject, postNewQuiz }
+export {
+    getAllSubjects,
+    getAllQuizzesBySubjectId,
+    getOneQuizById,
+    createNewSubject,
+    createNewQuiz,
+    addQuestions
+}

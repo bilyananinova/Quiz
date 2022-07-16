@@ -9,6 +9,7 @@ import Home from './components/categories/Home';
 import Quiz from './components/quiz/quiz-by-id/Quiz';
 import Quizzes from './components/quiz/all-quiz-by-subject/Quizzes';
 import CreateQuiz from './components/quiz/create-quiz/CreateQuiz';
+import AddQuestionsByQuizById from './components/quiz/add-quiz-by-id/AddQuestionsByQuizById';
 
 import Login from './components/user/Login';
 import Register from './components/user/Register';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/quiz/:id" element={<Quiz />} />
           <Route path="/subject/:id" element={<Quizzes />} />
           <Route path="/create-quiz" element={<CreateQuiz />} />
+          <Route path="/add-quiz/:id" element={<AddQuestionsByQuizById />} />
 
           <Route path="/user/login" element={<Login />} />
           <Route path="/user/register" element={<Register />} />

@@ -1,10 +1,10 @@
 let Quiz = require('../models/Quiz');
 
 async function newQuiz(body) {
-    let { subject, title, questions } = body;
+    let { subject, title } = body;
 
     try {
-        await Quiz.create({ subject, title, questions });
+        await Quiz.create({ subject, title });
     } catch (err) {
         throw new Error(err.message);
     }
@@ -13,7 +13,7 @@ async function newQuiz(body) {
 async function getQuizBySubject(id) {
 
     try {
-        let quizzes = await Quiz.find({ subject: id }).populate('subject').lean();
+        let quizzes = await Quiz.find({ subject: id }).lean();
 
         return quizzes;
     } catch (err) {
@@ -24,7 +24,7 @@ async function getQuizBySubject(id) {
 async function getQuizById(id) {
 
     try {
-        let quiz = await Quiz.findById(id).lean();
+        let quiz = await Quiz.findById(id).populate('subject').lean();
 
         return quiz;
     } catch (err) {
@@ -32,4 +32,13 @@ async function getQuizById(id) {
     }
 }
 
-module.exports = { newQuiz, getQuizBySubject, getQuizById }
+async function addQuestions(id, questions) {
+
+    try {
+        return await Quiz.findByIdAndUpdate(id, questions);
+    } catch (err) {
+        throw new Error(err.message);
+    }
+}
+
+module.exports = { newQuiz, getQuizBySubject, getQuizById, addQuestions }

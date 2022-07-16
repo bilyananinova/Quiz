@@ -8,6 +8,7 @@ function QuizCard({ quiz }) {
             <div className="quiz-card">
                 <h3>{quiz.title}</h3>
                 <Link to={`/quiz/${quiz._id}`} className="go-to-button">Start</Link>
+                <Link to={`/add-quiz/${quiz._id}`} className="go-to-button">Add Questions</Link>
             </div>
         </>
     )

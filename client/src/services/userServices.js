@@ -34,4 +34,8 @@ function logout() {
     })
 }
 
-export { login, register, logout }
+export {
+    login,
+    register,
+    logout
+}

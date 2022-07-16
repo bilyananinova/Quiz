@@ -1,10 +1,8 @@
 let express = require('express');
 let router = express.Router();
 
-let { isAdmin } = require('./middlewares/auth');
-
 let { newCategory, getAll } = require('./services/categories');
-let { newQuiz } = require('./services/quiz');
+let { newQuiz, addQuestions} = require('./services/quiz');
 
 let quizController = require('./controllers/quizController');
 let subjectController = require('./controllers/subjectController');
@@ -45,5 +43,15 @@ router.post("/create-quiz", (req, res) => {
     }
 });
 
+router.post("/add-quiz/:id", (req, res) => {
+
+    addQuestions(req.params.id, req.body)
+        .then(res => { 
+            return res;
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
 
 module.exports = router;
