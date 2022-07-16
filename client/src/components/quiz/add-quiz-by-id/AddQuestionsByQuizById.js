@@ -17,7 +17,7 @@ function AddQuestionsByQuizById() {
             })
     }, [params.id]);
 
-    function postQuestion(e) {
+    function postQuestionHandler(e) {
         e.preventDefault();
 
         setQuestions((questions) => [
@@ -34,7 +34,7 @@ function AddQuestionsByQuizById() {
         ])
     }
 
-    function postQuiz(e) {
+    function postQuizHandler(e) {
 
         addQuestions(questions, params.id)
             .then(() => {
@@ -48,7 +48,7 @@ function AddQuestionsByQuizById() {
             <h3>{quiz?.title}</h3>
             <h5>{quiz.subject?.name}</h5>
 
-            <form className="question-form" onSubmit={postQuestion}>
+            <form className="question-form" onSubmit={postQuestionHandler}>
 
                 <div className="question-div">
                     <label htmlFor="create-quiz-question">Question</label>
@@ -70,7 +70,7 @@ function AddQuestionsByQuizById() {
                 </div>
             </form>
 
-            <button type="button" className="create-quiz-button" onClick={postQuiz}>Create Quiz</button>
+            <button type="button" className="create-quiz-button" onClick={postQuizHandler}>Create Quiz</button>
         </>
     )
 

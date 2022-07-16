@@ -41,4 +41,13 @@ async function addQuestions(id, questions) {
     }
 }
 
-module.exports = { newQuiz, getQuizBySubject, getQuizById, addQuestions }
+async function deleteQuiz(id) {
+
+    try {
+        return await Quiz.findByIdAndDelete(id);
+    } catch (err) {
+        throw new Error(err.message);
+    }
+}
+
+module.exports = { newQuiz, getQuizBySubject, getQuizById, addQuestions, deleteQuiz }

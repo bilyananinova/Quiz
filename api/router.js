@@ -2,11 +2,12 @@ let express = require('express');
 let router = express.Router();
 
 let { newCategory, getAll } = require('./services/categories');
-let { newQuiz, addQuestions} = require('./services/quiz');
+let { newQuiz, addQuestions, deleteQuiz } = require('./services/quiz');
 
 let quizController = require('./controllers/quizController');
 let subjectController = require('./controllers/subjectController');
 let userController = require('./controllers/userController');
+const { response } = require('express');
 
 router.use('/quiz', quizController);
 router.use('/subject', subjectController);
@@ -46,8 +47,19 @@ router.post("/create-quiz", (req, res) => {
 router.post("/add-quiz/:id", (req, res) => {
 
     addQuestions(req.params.id, req.body)
-        .then(res => { 
-            return res;
+        .then(response => {
+            return res.json(response)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+
+router.delete("/quiz/:id", (req, res) => {
+
+    deleteQuiz(req.params.id)
+        .then(response => {
+            return res.json(response);
         })
         .catch(err => {
             console.log(err);

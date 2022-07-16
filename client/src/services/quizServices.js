@@ -55,6 +55,9 @@ function addQuestions(questions, id) {
     })
 }
 
+function deleteQuiz(id) {
+    return fetch(`http://${host}:${port}/quiz/${id}`, { method: "DELETE" })
+}
 
 export {
     getAllSubjects,
@@ -62,5 +65,6 @@ export {
     getOneQuizById,
     createNewSubject,
     createNewQuiz,
-    addQuestions
+    addQuestions,
+    deleteQuiz
 }
