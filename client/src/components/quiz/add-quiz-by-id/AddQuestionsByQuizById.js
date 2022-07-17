@@ -14,6 +14,7 @@ function AddQuestionsByQuizById() {
         getOneQuizById(params.id)
             .then(result => {
                 setQuiz(result);
+                setQuestions(result.questions)
             })
     }, [params.id]);
 
@@ -32,6 +33,10 @@ function AddQuestionsByQuizById() {
                 correctAnswer: e.target.correct.value,
             }
         ])
+        
+        setTimeout(() => {
+            e.target.reset();
+        }, 100)
     }
 
     function postQuizHandler(e) {
@@ -70,7 +75,7 @@ function AddQuestionsByQuizById() {
                 </div>
             </form>
 
-            <button type="button" className="create-quiz-button" onClick={postQuizHandler}>Create Quiz</button>
+            <button type="button" className="finish-quiz-button" onClick={postQuizHandler}>Create Quiz</button>
         </>
     )
 

@@ -46,3 +46,16 @@ h5 {
     text-align: center;
 }
 
+.create-quiz-button {
+    padding: 0.5em 2.5em;
+    font-family: var(--main-font-family);
+    font-size: var(--button-font-size);
+    border: none;
+    background-image: var(--main-background-color);
+}
+
+.create-quiz-button:hover,
+.create-quiz-button:focus {
+    cursor: pointer;
+    background: var(--button-hover-color);
+}
