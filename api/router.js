@@ -7,7 +7,6 @@ let { newQuiz, addQuestions, deleteQuiz } = require('./services/quiz');
 let quizController = require('./controllers/quizController');
 let subjectController = require('./controllers/subjectController');
 let userController = require('./controllers/userController');
-const { response } = require('express');
 
 router.use('/quiz', quizController);
 router.use('/subject', subjectController);

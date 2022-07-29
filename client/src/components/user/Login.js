@@ -3,9 +3,11 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { login } from '../../services/userServices';
+import { AuthContext } from '../../contexts/AuthContext';
 
 function Login() {
     let navigate = useNavigate();
+    let { getUser } = React.useContext(AuthContext);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -15,9 +17,11 @@ function Login() {
         }
 
         login(e.target.email.value, e.target.password.value)
-            .then(() => {
+            .then((res) => res.json())
+            .then((user) => {
+                getUser(user._id, user.name, user.email);
                 navigate('/');
-            });
+            })
 
     }
 

@@ -14,13 +14,13 @@ function QuizCard({ quiz }) {
 
     }
 
-
     return (
         <>
             <div className="quiz-card">
                 <h3>{quiz.title}</h3>
                 <Link to={`/quiz/${quiz._id}`} className="start-button">Start</Link>
                 <Link to={`/add-quiz/${quiz._id}`} className="add-button">Add Questions</Link>
+                <Link to={`/quiz/${quiz._id}/edit`} className="edit-button">Edit</Link>
                 <button onClick={() => deleteHandler(quiz._id)} className="delete-button" >Delete</button>
             </div>
         </>

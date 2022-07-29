@@ -1,6 +1,7 @@
 import './App.css';
 
 import { Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
@@ -17,30 +18,34 @@ import Logout from './components/user/Logout';
 
 function App() {
   return (
-    <div className="App">
+    <AuthProvider>
 
-      <Header />
+      <div className="App">
 
-      <main>
+        <Header />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
+        <main>
 
-          <Route path="/quiz/:id" element={<Quiz />} />
-          <Route path="/subject/:id" element={<Quizzes />} />
-          <Route path="/create-quiz" element={<CreateQuiz />} />
-          <Route path="/add-quiz/:id" element={<AddQuestionsByQuizById />} />
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-          <Route path="/user/login" element={<Login />} />
-          <Route path="/user/register" element={<Register />} />
-          <Route path="/user/logout" element={<Logout />}/>
-        </Routes>
+            <Route path="/quiz/:id" element={<Quiz />} />
+            <Route path="/subject/:id" element={<Quizzes />} />
+            <Route path="/create-quiz" element={<CreateQuiz />} />
+            <Route path="/add-quiz/:id" element={<AddQuestionsByQuizById />} />
 
-      </main>
+            <Route path="/user/login" element={<Login />} />
+            <Route path="/user/register" element={<Register />} />
+            <Route path="/user/logout" element={<Logout />} />
+          </Routes>
 
-      <Footer />
+        </main>
 
-    </div>
+        <Footer />
+
+      </div>
+    </AuthProvider>
+
   );
 }
 
