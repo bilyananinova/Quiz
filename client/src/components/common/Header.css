@@ -10,8 +10,8 @@
 .site-nav ul li {
     list-style: none;
     display: flex;
-    flex-grow: 1;
-    margin: 0.5em;
+    flex-grow: 2;
+    margin: auto;
 }
 
 .site-nav ul li a {
