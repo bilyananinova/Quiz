@@ -53,7 +53,6 @@ async function addQuestions(id, questions) {
 }
 
 async function deleteQuiz(id) {
-
     try {
         return await Quiz.findByIdAndDelete(id);
     } catch (err) {

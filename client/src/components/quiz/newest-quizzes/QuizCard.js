@@ -20,7 +20,7 @@ function QuizCard({ quiz }) {
 
     return (
         <>
-            <div className="quiz-card">
+            <div className="newest-quiz-card">
                 <h3>{quiz.title}</h3>
                 {user.id
                     ?

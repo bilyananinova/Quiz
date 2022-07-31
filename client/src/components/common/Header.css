@@ -5,26 +5,27 @@
 
 .site-nav {
     display: flex;
+    padding: 0 1em;
     background-image: var(--main-background-color);
 }
 
 .site-nav a {
-   
     padding: 0.5em;
 }
 
 .site-nav ul {
     display: flex;
+    margin-left: auto;
 }
 
 .site-nav ul li {
     display: flex;
+    justify-content: flex-end;
     list-style: none;
 }
 
 .site-nav ul li a {
     display: flex;
-    padding: 0.5em;
 }
 .site-nav a:focus,
 .site-nav a:hover,

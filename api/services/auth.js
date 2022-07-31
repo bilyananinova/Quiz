@@ -23,7 +23,7 @@ async function register(name, email, plainPassword) {
 async function login(email, password) {
 
     let user = await User.findOne({ email });
-
+    
     if (!user) {
         throw new Error('Wrong email or password!');
     }
