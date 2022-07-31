@@ -22,7 +22,7 @@ exports.auth = function (req, res, next) {
 
 exports.isAdmin = function (req, res, next) {
     
-    if (req.user.id === '62926423f378a92432513373') {
+    if (req.user && req.user.id === '62926423f378a92432513373') {
         next();
     }
 }

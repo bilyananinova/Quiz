@@ -1,6 +1,16 @@
+.site-header {
+    display: flex;
+    flex-direction: column;
+}
+
 .site-nav {
-    margin: 0.5em 0;
+    display: flex;
     background-image: var(--main-background-color);
+}
+
+.site-nav a {
+   
+    padding: 0.5em;
 }
 
 .site-nav ul {
@@ -8,18 +18,17 @@
 }
 
 .site-nav ul li {
-    list-style: none;
     display: flex;
-    flex-grow: 2;
-    margin: auto;
+    list-style: none;
 }
 
 .site-nav ul li a {
-    margin: auto;
     display: flex;
     padding: 0.5em;
 }
-
+.site-nav a:focus,
+.site-nav a:hover,
+.site-nav ul li a:focus,
 .site-nav ul li a:hover {
     box-shadow: 5px 0px 11px 0px rgba(52, 52, 52, 0.637);
 }

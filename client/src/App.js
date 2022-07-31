@@ -9,6 +9,7 @@ import Footer from './components/common/Footer';
 import Home from './components/categories/Home';
 import Quiz from './components/quiz/quiz-by-id/Quiz';
 import Quizzes from './components/quiz/all-quiz-by-subject/Quizzes';
+import Newest from './components/quiz/newest-quizzes/Newest';
 import CreateQuiz from './components/quiz/create-quiz/CreateQuiz';
 import AddQuestionsByQuizById from './components/quiz/add-quiz-by-id/AddQuestionsByQuizById';
 
@@ -28,6 +29,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/newest" element={<Newest />} />
 
             <Route path="/quiz/:id" element={<Quiz />} />
             <Route path="/subject/:id" element={<Quizzes />} />

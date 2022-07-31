@@ -1,8 +1,10 @@
 let express = require('express');
 let router = express.Router();
 
+let { isAdmin } = require('./middlewares/auth');
+
 let { newCategory, getAll } = require('./services/categories');
-let { newQuiz, addQuestions, deleteQuiz } = require('./services/quiz');
+let { newQuiz, getNewest, addQuestions, deleteQuiz } = require('./services/quiz');
 
 let quizController = require('./controllers/quizController');
 let subjectController = require('./controllers/subjectController');
@@ -22,7 +24,17 @@ router.get("/", (req, res) => {
         })
 });
 
-router.post("/create-quiz", (req, res) => {
+router.get("/newest", (req, res) => {
+    getNewest()
+        .then(result => {
+            res.json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+
+router.post("/create-quiz", isAdmin, (req, res) => {
 
     if (req.body.name) {
         newCategory(req.body.name)
@@ -43,7 +55,7 @@ router.post("/create-quiz", (req, res) => {
     }
 });
 
-router.post("/add-quiz/:id", (req, res) => {
+router.post("/add-quiz/:id", isAdmin, (req, res) => {
 
     addQuestions(req.params.id, req.body)
         .then(response => {
@@ -54,7 +66,7 @@ router.post("/add-quiz/:id", (req, res) => {
         })
 });
 
-router.delete("/quiz/:id", (req, res) => {
+router.delete("/quiz/:id", isAdmin, (req, res) => {
 
     deleteQuiz(req.params.id)
         .then(response => {

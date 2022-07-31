@@ -14,7 +14,7 @@ export let AuthProvider = ({
     })
 
     let getUser = (id, name, email) => {
-        if (id == undefined) {
+        if (id === undefined) {
             setUserContext({
                 id: '',
                 name: '',

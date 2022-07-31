@@ -32,6 +32,17 @@ async function getQuizById(id) {
     }
 }
 
+async function getNewest() {
+
+    try {
+        let quizzes = await Quiz.find({}).sort({ _id: -1 }).limit(10)
+
+        return quizzes;
+    } catch (err) {
+        throw new Error(err.message);
+    }
+}
+
 async function addQuestions(id, questions) {
 
     try {
@@ -50,4 +61,4 @@ async function deleteQuiz(id) {
     }
 }
 
-module.exports = { newQuiz, getQuizBySubject, getQuizById, addQuestions, deleteQuiz }
+module.exports = { newQuiz, getQuizBySubject, getQuizById, getNewest, addQuestions, deleteQuiz }

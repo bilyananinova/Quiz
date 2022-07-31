@@ -15,6 +15,13 @@ function getAllQuizzesBySubjectId(id) {
         .then(res => res.json())
 }
 
+function getLastQuizzes() {
+    return fetch(`http://${host}:${port}/newest`, {
+        credentials: "include"
+    })
+        .then(res => res.json())
+}
+
 function getOneQuizById(id) {
     return fetch(`http://${host}:${port}/quiz/${id}`, {
         credentials: "include"
@@ -63,6 +70,7 @@ export {
     getAllSubjects,
     getAllQuizzesBySubjectId,
     getOneQuizById,
+    getLastQuizzes,
     createNewSubject,
     createNewQuiz,
     addQuestions,
