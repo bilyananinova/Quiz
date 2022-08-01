@@ -19,6 +19,8 @@ import Login from './components/user/Login';
 import Register from './components/user/Register';
 import Logout from './components/user/Logout';
 
+import PageNotFound from './components/error/PageNotFound';
+
 function App() {
   return (
     <AuthProvider>
@@ -58,6 +60,8 @@ function App() {
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/register" element={<Register />} />
             <Route path="/user/logout" element={<Logout />} />
+
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
 
         </main>
