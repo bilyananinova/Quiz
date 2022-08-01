@@ -17,7 +17,6 @@ function Newest() {
             })
     }, [params.id])
 
-    console.log(list);
     return (
         <>
             <section className="newest-quizzes-section">

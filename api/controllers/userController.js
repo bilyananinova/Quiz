@@ -1,8 +1,10 @@
 let express = require('express');
-let { register, login } = require('../services/auth');
+let router = express.Router();
+
 let { jwtSign } = require('../utils/jwt');
 let { COOKIE_NAME } = require('../config/constants');
-let router = express.Router();
+
+let { register, login } = require('../services/auth');
 
 router.post("/login", (req, res) => {
     let { email, password } = req.body;

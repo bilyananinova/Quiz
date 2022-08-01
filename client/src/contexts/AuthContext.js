@@ -28,7 +28,6 @@ export let AuthProvider = ({
         } else {
             setUserContext({ id, name, email, isAdmin: false });
         }
-
         
     }
 

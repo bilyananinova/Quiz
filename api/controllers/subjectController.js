@@ -1,6 +1,7 @@
 let express = require('express');
-let { getQuizBySubject } = require('../services/quiz');
 let router = express.Router();
+
+let { getQuizBySubject } = require('../services/quiz');
 
 router.get("/:id", (req, res) => {
 

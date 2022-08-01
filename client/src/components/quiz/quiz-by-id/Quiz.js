@@ -2,9 +2,8 @@ import './Quiz.css';
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-import { getOneQuizById } from '../../../services/quizServices';
-
 import QuestionCard from './QuestionCard';
+import { getOneQuizById } from '../../../services/quizServices';
 
 function Quiz() {
     let params = useParams();

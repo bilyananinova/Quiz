@@ -17,12 +17,23 @@ exports.auth = function (req, res, next) {
     if (!token) {
         return next();
     }
+ 
+} 
 
+exports.isLogged = function (req, res, next) {
+
+    if (!req.user) {
+        console.log(('page 404'));
+    } else {
+        next();
+    }
 }
 
 exports.isAdmin = function (req, res, next) {
-    
+
     if (req.user && req.user.id === '62926423f378a92432513373') {
         next();
+    } else {
+        console.log(('page 404'));
     }
 }

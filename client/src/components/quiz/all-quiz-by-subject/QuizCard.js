@@ -11,6 +11,10 @@ function QuizCard({ quiz }) {
     let user = context.userContext;
 
     function deleteHandler(e) {
+        if (!user.isAdmin) {
+            return;
+        }
+        
         deleteQuiz(quiz._id)
             .then(() => {
                 navigate('/');

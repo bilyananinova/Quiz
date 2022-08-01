@@ -2,6 +2,8 @@ import './App.css';
 
 import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
+import AdminRoute from './components/common/helpers/AdminRoute';
+import UserRoute from './components/common/helpers/UserRoute';
 
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
@@ -31,10 +33,27 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/newest" element={<Newest />} />
 
-            <Route path="/quiz/:id" element={<Quiz />} />
-            <Route path="/subject/:id" element={<Quizzes />} />
-            <Route path="/create-quiz" element={<CreateQuiz />} />
-            <Route path="/add-quiz/:id" element={<AddQuestionsByQuizById />} />
+            <Route path="/quiz/:id" element={
+              <UserRoute>
+                <Quiz />
+              </UserRoute>
+            } />
+            <Route path="/subject/:id" element={
+              <UserRoute>
+                <Quizzes />
+              </UserRoute>
+            } />
+
+            <Route path="/create-quiz" element={
+              <AdminRoute>
+                <CreateQuiz />
+              </AdminRoute>}
+            />
+            <Route path="/add-quiz/:id" element={
+              <AdminRoute>
+                <AddQuestionsByQuizById />
+              </AdminRoute>
+            } />
 
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/register" element={<Register />} />
