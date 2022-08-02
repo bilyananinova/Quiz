@@ -31,7 +31,7 @@ exports.isLogged = function (req, res, next) {
 
 exports.isAdmin = function (req, res, next) {
 
-    if (req.user && req.user.id === '62926423f378a92432513373') {
+    if (res.locals.user.id == '62926423f378a92432513373') {
         next();
     } else {
         console.log(('page 404'));

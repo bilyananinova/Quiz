@@ -66,8 +66,8 @@ router.post("/add-quiz/:id", isAdmin, (req, res) => {
         })
 });
 
-router.delete("/quiz/:id", isAdmin, (req, res) => {
-
+router.delete("/quiz/:id", isAdmin,(req, res) => {
+     
     deleteQuiz(req.params.id)
         .then(response => {
             return res.json(response);

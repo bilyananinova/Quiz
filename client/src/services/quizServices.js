@@ -63,7 +63,10 @@ function addQuestions(questions, id) {
 }
 
 function deleteQuiz(id) {
-    return fetch(`http://${host}:${port}/quiz/${id}`, { method: "DELETE" })
+    return fetch(`http://${host}:${port}/quiz/${id}`, {
+        method: "DELETE",
+        credentials: "include"
+    })
 }
 
 export {
