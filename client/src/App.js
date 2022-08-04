@@ -19,7 +19,7 @@ import Login from './components/user/Login';
 import Register from './components/user/Register';
 import Logout from './components/user/Logout';
 
-import PageNotFound from './components/error/PageNotFound';
+import PageNotFound from './components/page-not-found/PageNotFound';
 
 function App() {
   return (

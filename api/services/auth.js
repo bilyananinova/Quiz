@@ -1,11 +1,18 @@
 let User = require('../models/User');
 let { createHash, validatePassword } = require('../utils/bcrypt');
 
-async function register(name, email, plainPassword) {
+async function register(name, email, plainPassword, rePassword) {
+
+    let user = await User.findOne({ email });
 
     try {
+        if (plainPassword !== rePassword) {
+            throw new Error('Passwords missmatch!');
+        }
 
-        let user = await User.findOne({ email });
+        if (!name || !email || !plainPassword || !rePassword) {
+            throw new Error('All fields are required!');
+        }
 
         if (user) {
             throw new Error('Wrong email or password!');
@@ -16,25 +23,36 @@ async function register(name, email, plainPassword) {
         return User.create({ name, email, password });
 
     } catch (err) {
-        throw new Error('Wrong email or password!');
+        // console.log(err);
+        throw err.message;
     }
 }
 
 async function login(email, password) {
 
     let user = await User.findOne({ email });
-    
-    if (!user) {
-        throw new Error('Wrong email or password!');
+
+    try {
+        if (!email || !password) {
+            throw new Error('All fields are required!');
+        }
+
+        if (!user) {
+            throw new Error('Wrong email or password!');
+        }
+
+        let isValidate = validatePassword(password, user.password);
+
+        if (!isValidate) {
+            throw new Error('Wrong email or password!');
+        }
+
+        return user;
+    } catch (err) {
+        // console.log(err.message);
+        throw err.message;
     }
 
-    let isValidate = validatePassword(password, user.password);
-
-    if (!isValidate) {
-        throw new Error('Wrong email or password!');
-    }
-
-    return user;
 }
 
 module.exports = { register, login }

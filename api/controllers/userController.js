@@ -6,6 +6,19 @@ let { COOKIE_NAME } = require('../config/constants');
 
 let { register, login } = require('../services/auth');
 
+router.post("/register", (req, res) => {
+    let { name, email, password , rePassword} = req.body;
+
+    register(name, email, password, rePassword)
+        .then(user => {
+            res.cookie(COOKIE_NAME, jwtSign(user), { httpOnly: true });
+            res.json(user);
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        })
+});
+
 router.post("/login", (req, res) => {
     let { email, password } = req.body;
 
@@ -15,20 +28,7 @@ router.post("/login", (req, res) => {
             res.json(user);
         })
         .catch(err => {
-            console.log(err);
-        })
-});
-
-router.post("/register", (req, res) => {
-    let { name, email, password } = req.body;
-
-    register(name, email, password)
-        .then(user => {
-            res.cookie(COOKIE_NAME, jwtSign(user), { httpOnly: true });
-            res.json(user);
-        })
-        .catch(err => {
-            console.log(err);
+            res.status(500).json(err);
         })
 });
 

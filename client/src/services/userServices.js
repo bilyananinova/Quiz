@@ -1,7 +1,7 @@
 let host = 'localhost';
 let port = '9000';
 
-function register(name, email, password) {
+function register(name, email, password, rePassword) {
 
     return fetch(`http://${host}:${port}/user/register`, {
         method: 'POST',
@@ -9,7 +9,7 @@ function register(name, email, password) {
             'Content-Type': 'application/json',
             "Access-Control-Allow-Credentials": true,
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, email, password, rePassword }),
         credentials: "include",
     })
 }

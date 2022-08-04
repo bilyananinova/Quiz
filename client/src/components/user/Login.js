@@ -5,34 +5,46 @@ import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../../services/userServices';
 import { AuthContext } from '../../contexts/AuthContext';
 
+import ErrorComponent from '../error/ErrorComponent';
+
 function Login() {
     let navigate = useNavigate();
     let { getUser } = React.useContext(AuthContext);
+    let [error, setError] = React.useState('');
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (!e.target.password.value || !e.target.email.value) {
-            return;
-        }
-
         login(e.target.email.value, e.target.password.value)
-            .then((res) => res.json())
-            .then((user) => {
-                getUser(user._id, user.name, user.email);
-                navigate('/');
+            .then(response => {
+
+                if (response.ok === false) {
+                    return response.json().then(err => { throw new Error(err) })
+                } else {
+                    return response.json();
+                }
+            })
+            .then(user => {
+                if (user) {
+                    getUser(user._id, user.name, user.email);
+                    navigate('/');
+                }
+            })
+            .catch((err) => {
+                // console.log(err.message);
+                setError(err.message);
             })
 
     }
-
     return (
         <>
             <h3>Login Page</h3>
             <div className="form-wrapper">
                 <section className="form-section">
+                    {error ? <ErrorComponent message={error} /> : null}
                     <form className="login-form" onSubmit={handleSubmit}>
                         <label htmlFor="login-email">Email address<span className="required">*</span></label>
-                        <input type="email" className="form-input" id="login-email" name="email" placeholder="ivan@mail.bg" />
+                        <input type="text" className="form-input" id="login-email" name="email" placeholder="ivan@mail.bg" />
                         <label htmlFor="login-password">Password<span className="required">*</span></label>
                         <input type="password" className="form-input" id="login-password" name="password" placeholder="******" />
                         <button type="submit" className="login-button">Login</button>
