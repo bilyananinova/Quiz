@@ -7,7 +7,7 @@ let { COOKIE_NAME } = require('../config/constants');
 let { register, login } = require('../services/auth');
 
 router.post("/register", (req, res) => {
-    let { name, email, password , rePassword} = req.body;
+    let { name, email, password, rePassword } = req.body;
 
     register(name, email, password, rePassword)
         .then(user => {
@@ -15,6 +15,15 @@ router.post("/register", (req, res) => {
             res.json(user);
         })
         .catch(err => {
+            if (err.errors) {
+                if (err.errors.name) {
+                    res.status(500).json(err.errors.name.message);
+                }
+
+                if (err.errors.email) {
+                    res.status(500).json(err.errors.email.message);
+                }
+            }
             res.status(500).json(err);
         })
 });

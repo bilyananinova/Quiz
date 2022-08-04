@@ -10,8 +10,8 @@ async function register(name, email, plainPassword, rePassword) {
             throw new Error('Passwords missmatch!');
         }
 
-        if (!name || !email || !plainPassword || !rePassword) {
-            throw new Error('All fields are required!');
+        if (plainPassword.length < 5) {
+            throw new Error('The password should be at least 5 characters long!');
         }
 
         if (user) {
@@ -23,7 +23,6 @@ async function register(name, email, plainPassword, rePassword) {
         return User.create({ name, email, password });
 
     } catch (err) {
-        // console.log(err);
         throw err.message;
     }
 }

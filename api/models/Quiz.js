@@ -4,7 +4,10 @@ let QuizSchema = new mongoose.Schema({
     title: String,
     questions: [
         {
-            question: String,
+            question: {
+                type: String,
+                required: true
+            },
             answers: [
                 {
                     type: String,
