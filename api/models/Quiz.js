@@ -1,7 +1,10 @@
 let mongoose = require('mongoose')
 
 let QuizSchema = new mongoose.Schema({
-    title: String,
+    title: {
+        type: String,
+        required: true,
+    },
     questions: [
         {
             question: {

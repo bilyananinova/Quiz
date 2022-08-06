@@ -4,10 +4,13 @@ import { useNavigate } from 'react-router-dom';
 
 import { getAllSubjects, createNewSubject, createNewQuiz } from '../../../services/quizServices';
 
+import ErrorComponent from '../../error/ErrorComponent';
+
 function CreateQuiz() {
     let navigate = useNavigate();
     let [subjects, setSubjects] = React.useState([]);
-    let [subject, setSubject] = React.useState();
+    let [subject, setSubject] = React.useState('');
+    let [error, setError] = React.useState('');
 
     React.useEffect(() => {
         getAllSubjects()
@@ -26,8 +29,17 @@ function CreateQuiz() {
     function createNewQuizHandler(e) {
         e.preventDefault();
         createNewQuiz(subject, e.target.title.value)
+            .then(response => {
+                if (response.ok === false) {
+                    return response.json().then(err => { throw new Error(err) });
+                }
+            })
             .then(() => {
                 navigate('/');
+            })
+            .catch((err) => {
+                // console.log(err);
+                setError(err.message);
             })
     }
 
@@ -41,14 +53,16 @@ function CreateQuiz() {
                 </form>
             </div>
 
+            {error ? <ErrorComponent message={error} /> : null}
+
             <div className="create-quiz" >
                 <h3>Create New Quiz</h3>
 
                 <form onSubmit={createNewQuizHandler}>
-
                     <div className="category-div">
                         <label htmlFor="create-quiz-category">Subject</label>
                         <select onChange={e => setSubject(e.target.value)} >
+                            <option>Select subject...</option>
                             {subjects
                                 .sort((a, b) => a.name.localeCompare(b.name))
                                 .map(s => <option value={s._id} key={s._id}> {s.name}</option>)}

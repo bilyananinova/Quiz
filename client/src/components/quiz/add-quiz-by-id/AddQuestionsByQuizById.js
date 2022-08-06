@@ -33,7 +33,7 @@ function AddQuestionsByQuizById() {
                 correctAnswer: e.target.correct.value,
             }
         ])
-        
+
         setTimeout(() => {
             e.target.reset();
         }, 100)
@@ -49,11 +49,10 @@ function AddQuestionsByQuizById() {
 
     return (
         <>
-
-            <h3>{quiz?.title}</h3>
-            <h5>{quiz.subject?.name}</h5>
-
+        
             <form className="question-form" onSubmit={postQuestionHandler}>
+                <h3 className="create-quiz-title">{quiz?.title}</h3>
+                <h5 className="create-quiz-subject">{quiz.subject?.name}</h5>
 
                 <div className="question-div">
                     <label htmlFor="create-quiz-question">Question</label>

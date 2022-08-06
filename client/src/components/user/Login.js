@@ -19,7 +19,7 @@ function Login() {
             .then(response => {
 
                 if (response.ok === false) {
-                    return response.json().then(err => { throw new Error(err) })
+                    return response.json().then(err => { throw new Error(err) });
                 } else {
                     return response.json();
                 }

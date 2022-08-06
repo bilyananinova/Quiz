@@ -4,9 +4,15 @@ async function newQuiz(body) {
     let { subject, title } = body;
 
     try {
+
+        if (!subject || !title) {
+            throw new Error('Subject and title are required!');
+        }
+        
         await Quiz.create({ subject, title });
+
     } catch (err) {
-        throw new Error(err.message);
+        throw err.message;
     }
 }
 
