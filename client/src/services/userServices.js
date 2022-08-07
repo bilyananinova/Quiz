@@ -34,8 +34,29 @@ function logout() {
     })
 }
 
+function setQuizToProfile(userId, id, score) {
+
+    return fetch(`http://${host}:${port}/user/profile`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userId, id, score }),
+        credentials: "include",
+    })
+}
+
+function getProfile(userId) {
+    return fetch(`http://${host}:${port}/user/profile/${userId}`, {
+        credentials: "include"
+    })
+        .then(res => res.json())
+}
+
 export {
     login,
     register,
-    logout
+    logout,
+    setQuizToProfile,
+    getProfile
 }

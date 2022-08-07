@@ -54,4 +54,39 @@ async function login(email, password) {
 
 }
 
-module.exports = { register, login }
+async function addToProfile(user, id, score) {
+
+    try {
+        return await User.findByIdAndUpdate(user,
+            {
+
+                $push: {
+                    'quizzes': {
+                        quiz: id,
+                        score
+                    }
+                }
+
+            }
+
+        )
+    } catch (err) {
+        throw new Error(err.message);
+    }
+}
+
+async function getProfile(userId) {
+
+    try {
+        return await User.findById(userId).populate({
+            path: 'quizzes',
+            populate: {
+                path: 'quiz',
+            }
+        }).lean();
+    } catch (err) {
+        throw new Error(err.message);
+    }
+}
+
+module.exports = { register, login, addToProfile, getProfile }

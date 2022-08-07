@@ -2,10 +2,10 @@ import './Login.css';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { login } from '../../services/userServices';
-import { AuthContext } from '../../contexts/AuthContext';
+import { login } from '../../../services/userServices';
+import { AuthContext } from '../../../contexts/AuthContext';
 
-import ErrorComponent from '../error/ErrorComponent';
+import ErrorComponent from '../../error/ErrorComponent';
 
 function Login() {
     let navigate = useNavigate();

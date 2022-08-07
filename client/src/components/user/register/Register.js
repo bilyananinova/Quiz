@@ -2,10 +2,10 @@ import './Register.css';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { register } from '../../services/userServices';
-import { AuthContext } from '../../contexts/AuthContext';
+import { register } from '../../../services/userServices';
+import { AuthContext } from '../../../contexts/AuthContext';
 
-import ErrorComponent from '../error/ErrorComponent';
+import ErrorComponent from '../../error/ErrorComponent';
 
 function Register() {
     let navigate = useNavigate();

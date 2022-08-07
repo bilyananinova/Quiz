@@ -2,8 +2,11 @@ import './Quiz.css';
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-import QuestionCard from './QuestionCard';
 import { getOneQuizById } from '../../../services/quizServices';
+import { setQuizToProfile } from '../../../services/userServices';
+import { AuthContext } from '../../../contexts/AuthContext';
+
+import QuestionCard from './QuestionCard';
 
 function Quiz() {
     let params = useParams();
@@ -11,6 +14,8 @@ function Quiz() {
     let [isActive, setActive] = React.useState(true);
     let [questionsArr, setQuestionsArr] = React.useState([]);
     let [score, setScore] = React.useState(0);
+    let context = React.useContext(AuthContext);
+    let user = context.userContext;
 
     React.useEffect(() => {
         getOneQuizById(params.id)
@@ -28,6 +33,8 @@ function Quiz() {
     };
 
     function showUserScore() {
+
+        setQuizToProfile(user.id, params.id, score);
         setActive(false);
     }
 
@@ -36,12 +43,13 @@ function Quiz() {
             <div className={!isActive ? 'quiz-div is-visible' : 'quiz-div'}>
                 <h3>{quiz.title}</h3>
                 {
-                    questionsArr.map(q =>
-                        < QuestionCard
-                            key={q._id}
-                            quest={q}
-                            getAnswer={getAnswer} />
-                    )
+                    questionsArr
+                        .map(q =>
+                            < QuestionCard
+                                key={q._id}
+                                quest={q}
+                                getAnswer={getAnswer} />
+                        )
                 }
             </div>
 

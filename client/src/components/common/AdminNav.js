@@ -10,7 +10,7 @@ function AdminNav() {
         <>
 
             <li><Link to="/create-quiz" >Create Quiz</Link></li>
-            <li><Link to="/" >Welcome, {user.name} !</Link></li>
+            <li><Link to={`/user/profile`} >Welcome, {user.name} !</Link></li>
             <li><Link to="/user/logout">Logout</Link></li>
 
         </>

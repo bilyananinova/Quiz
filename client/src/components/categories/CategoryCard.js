@@ -15,7 +15,7 @@ function CategoryCard({ cat }) {
                 <h3>{cat.name}</h3>
                 {user.id
                     ?
-                    <Link to={`/subject/${cat._id}`} className="go-to-button">Go To Quizzes</Link>
+                    <Link to={`/subject/${cat._id}`} className="go-to-button">Continue</Link>
                     :
                     null
                 }

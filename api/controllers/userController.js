@@ -4,7 +4,7 @@ let router = express.Router();
 let { jwtSign } = require('../utils/jwt');
 let { COOKIE_NAME } = require('../config/constants');
 
-let { register, login } = require('../services/auth');
+let { register, login, addToProfile, getProfile } = require('../services/auth');
 
 router.post("/register", (req, res) => {
     let { name, email, password, rePassword } = req.body;
@@ -45,6 +45,21 @@ router.get('/logout', (req, res) => {
 
     res.clearCookie(COOKIE_NAME);
     return res.redirect('/');
+});
+
+router.post("/profile", (req, res) => {
+    let { userId, id, score } = req.body;
+
+    addToProfile(userId, id, score);
+});
+
+router.get("/profile/:id", (req, res) => {
+    let userId = req.params.id;
+
+    getProfile(userId)
+        .then(user => {
+            res.json(user)
+        });
 });
 
 module.exports = router;

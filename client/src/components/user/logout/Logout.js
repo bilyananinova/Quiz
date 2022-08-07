@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { logout } from '../../services/userServices';
-import { AuthContext } from '../../contexts/AuthContext';
+import { logout } from '../../../services/userServices';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 function Logout() {
     let navigate = useNavigate();

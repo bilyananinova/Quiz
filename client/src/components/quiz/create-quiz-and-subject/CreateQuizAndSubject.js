@@ -1,4 +1,4 @@
-import './CreateQuiz.css';
+import './CreateQuizAndSubject.css';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -19,7 +19,6 @@ function CreateQuiz() {
 
     function createNewSubjectHandler(e) {
         e.preventDefault();
-
         createNewSubject(e.target.newSubject.value)
             .then(() => {
                 e.target.newSubject.value = '';

@@ -15,7 +15,24 @@ let userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, 'All fields are required!'],
-    }
+    },
+    quizzes:
+        [
+            {
+                quiz: {
+                    required: true,
+                    ref: 'Quiz',
+                    type: mongoose.Schema.Types.ObjectId,
+                },
+                score: {
+                    type: Number,
+                }
+            }
+        ]
+
+
+
+
 });
 
 module.exports = mongoose.model('User', userSchema);
