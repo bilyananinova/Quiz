@@ -13,7 +13,7 @@ function QuizCard({ quiz }) {
     function deleteHandler(e) {
         deleteQuiz(quiz._id)
             .then(() => {
-                navigate('/');
+                navigate(0);
             })
 
     }

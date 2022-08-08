@@ -2,7 +2,7 @@ import './Home.css';
 import React from 'react';
 
 import CategoryCard from './CategoryCard';
-import { getAllSubjects } from '../../services/quizServices';
+import { getAllSubjects } from '../../services/categoryServices';
 
 function Home() {
     let [categories, setCategories] = React.useState([]);

@@ -2,7 +2,8 @@ import './CreateQuizAndSubject.css';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { getAllSubjects, createNewSubject, createNewQuiz } from '../../../services/quizServices';
+import { getAllSubjects, createNewSubject } from '../../../services/categoryServices';
+import { createNewQuiz } from '../../../services/quizServices';
 
 import ErrorComponent from '../../error/ErrorComponent';
 

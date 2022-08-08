@@ -11,16 +11,24 @@
     margin-bottom: 1em;
 }
 
+.delete-button,
 .go-to-button {
-    padding: 0.5em 2.5em;
+    padding: 0.5em 2em;
     font-family: var(--main-font-family);
     font-size: var(--button-font-size);
     border: none;   
     background-image: var(--main-background-color);
+    margin-right: 0.3em;
 }
 
 .go-to-button:hover,
 .go-to-button:focus {
     cursor: pointer;
     background: var(--button-hover-color);
+}
+
+.delete-button:hover,
+.delete-button:focus {
+    cursor: pointer;
+    background: var(--button-delete-color);
 }

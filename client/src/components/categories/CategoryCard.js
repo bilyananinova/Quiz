@@ -1,24 +1,42 @@
 import './CategoryCard.css'
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../contexts/AuthContext';
+import { deleteSubject } from '../../services/categoryServices';
 
 function CategoryCard({ cat }) {
+    let navigate = useNavigate();
     let context = React.useContext(AuthContext);
     let user = context.userContext;
     let link = cat.name.split(',').map(w => w.trim().toLowerCase()).join('-');
+    let buttons;
+
+    function deleteSubjectHandle(id) {
+        deleteSubject(id)
+            .then(() => {
+                navigate(0)
+            })
+    }
+
+    if (user.id && user.isAdmin) {
+        buttons = <div>
+            <Link to={`/subject/${cat._id}`} className="go-to-button">Continue</Link>
+            <button onClick={() => deleteSubjectHandle(cat._id)} className="delete-button">Delete</button>
+        </div>
+    } else if (user.id && !user.isAdmin) {
+        buttons = <div>
+
+        </div>
+    } else if (!user.id && !user.isAdmin) {
+        buttons = null;
+    }
 
     return (
         <>
             <div className="category-card">
                 <h3>{cat.name}</h3>
-                {user.id
-                    ?
-                    <Link to={`/subject/${cat._id}`} className="go-to-button">Continue</Link>
-                    :
-                    null
-                }
+                {buttons}
             </div>
         </>
     )
