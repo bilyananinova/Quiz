@@ -30,5 +30,5 @@
 .delete-button:hover,
 .delete-button:focus {
     cursor: pointer;
-    background: var(--button-delete-color);
+    background: var(--delete-button-hover-color);
 }
