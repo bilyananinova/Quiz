@@ -17,7 +17,14 @@ export let AuthProvider = ({
     children
 }) => {
 
-    let [state, dispatch] = React.useReducer(reducer, { user: null })
+    let [state, dispatch] = React.useReducer(reducer, { user: null });
+
+    React.useEffect(() => {
+        let id = localStorage.getItem('user._id');
+        let name = localStorage.getItem('user.name');
+        let email = localStorage.getItem('user.email');
+        getUser(id, name, email)
+      }, [])
 
     let getUser = (id, name, email) => {
 

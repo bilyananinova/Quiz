@@ -1,6 +1,5 @@
 import './Profile.css';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../../contexts/AuthContext';
 import { getProfile } from '../../../services/userServices';
@@ -17,7 +16,7 @@ function Profile() {
             .then(user => {
                 setList(user.quizzes);
             })
-    }, [])
+    }, [user.id])
 
     return (
         <>
@@ -30,7 +29,7 @@ function Profile() {
                                     key={q._id}
                                     quiz={q} />)
                         :
-                        <h4>Try your first quiz <Link to='/'></Link></h4>
+                        null
                 }
             </section>
         </>

@@ -26,6 +26,9 @@ function Login() {
             })
             .then(user => {
                 if (user) {
+                    localStorage.setItem('user._id', user._id);
+                    localStorage.setItem('user.name', user.name);
+                    localStorage.setItem('user.email', user.email);
                     getUser(user._id, user.name, user.email);
                     navigate('/');
                 }
