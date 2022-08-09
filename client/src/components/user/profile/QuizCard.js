@@ -15,7 +15,7 @@ function QuizCard({ quiz }) {
                         <Link to={`/quiz/${quiz.quiz._id}`} className="try-again-button">Try Again</Link>
                     </div>
                     :
-                    null
+                    <h4>Try your first quiz <Link to='/' className="home-link">here</Link>.</h4>
             }
         </>
     )

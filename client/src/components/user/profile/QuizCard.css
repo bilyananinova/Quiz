@@ -25,3 +25,7 @@
     cursor: pointer;
     background: var(--button-hover-color);
 }
+
+.home-link {
+    color: var(--main-a-color);
+}
