@@ -3,8 +3,8 @@ import React from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 
 function UserNav() {
-    let context = React.useContext(AuthContext);
-    let user = context.userContext;
+    let state = React.useContext(AuthContext);
+    let user = state.user;
 
     return (
         <>

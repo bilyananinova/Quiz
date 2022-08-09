@@ -4,10 +4,10 @@ import { Navigate} from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext'
 
 function UserRoute({children}) {
-    let context = React.useContext(AuthContext);
-    let user = context.userContext;
+    let state = React.useContext(AuthContext);
+    let user = state.user;
 
-    if(!user.id) {
+    if(!user?.id) {
         return <Navigate to="/user/login" />;
     }
 

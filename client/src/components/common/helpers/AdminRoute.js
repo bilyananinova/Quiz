@@ -4,8 +4,8 @@ import { Navigate} from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext'
 
 function AdminRoute({children}) {
-    let context = React.useContext(AuthContext);
-    let user = context.userContext;
+    let state = React.useContext(AuthContext);
+    let user = state.user;
 
     if(!user.isAdmin) {
         return <Navigate to="/user/login" />;

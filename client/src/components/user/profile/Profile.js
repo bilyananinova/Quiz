@@ -9,8 +9,8 @@ import QuizCard from './QuizCard';
 
 function Profile() {
     let [list, setList] = React.useState([]);
-    let context = React.useContext(AuthContext);
-    let user = context.userContext;
+    let state = React.useContext(AuthContext);
+    let user = state.user;
 
     React.useEffect(() => {
         getProfile(user.id)

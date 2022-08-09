@@ -14,8 +14,8 @@ function Quiz() {
     let [isActive, setActive] = React.useState(true);
     let [questionsArr, setQuestionsArr] = React.useState([]);
     let [score, setScore] = React.useState(0);
-    let context = React.useContext(AuthContext);
-    let user = context.userContext;
+    let state = React.useContext(AuthContext);
+    let user = state.user;
 
     React.useEffect(() => {
         getOneQuizById(params.id)

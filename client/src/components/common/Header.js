@@ -7,8 +7,8 @@ import AdminNav from './AdminNav';
 import { AuthContext } from '../../contexts/AuthContext';
 
 function Header() {
-    let context = React.useContext(AuthContext);
-    let user = context.userContext;
+    let state = React.useContext(AuthContext);
+    let user = state.user;
 
     return (
         <>
@@ -23,7 +23,7 @@ function Header() {
                     <Link to="/newest" >Newest</Link>
                     <ul>
 
-                        {user.id
+                        {user?.id
                             ?
                             <>
                                 {

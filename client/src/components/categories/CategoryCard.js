@@ -7,8 +7,8 @@ import { deleteSubject } from '../../services/categoryServices';
 
 function CategoryCard({ cat }) {
     let navigate = useNavigate();
-    let context = React.useContext(AuthContext);
-    let user = context.userContext;
+    let state = React.useContext(AuthContext);
+    let user = state.user;
     let link = cat.name.split(',').map(w => w.trim().toLowerCase()).join('-');
     let buttons;
 
@@ -19,16 +19,16 @@ function CategoryCard({ cat }) {
             })
     }
 
-    if (user.id && user.isAdmin) {
+    if (user?.id && user?.isAdmin) {
         buttons = <div>
             <Link to={`/subject/${cat._id}`} className="go-to-button">Continue</Link>
             <button onClick={() => deleteSubjectHandle(cat._id)} className="delete-button">Delete</button>
         </div>
-    } else if (user.id && !user.isAdmin) {
+    } else if (user?.id && !user?.isAdmin) {
         buttons = <div>
-
+            <Link to={`/subject/${cat._id}`} className="go-to-button">Continue</Link>
         </div>
-    } else if (!user.id && !user.isAdmin) {
+    } else if (!user?.id && !user?.isAdmin) {
         buttons = null;
     }
 
