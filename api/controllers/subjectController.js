@@ -3,6 +3,7 @@ let router = express.Router();
 
 let { getQuizBySubject } = require('../services/quiz');
 let { deleteSubjectById } = require('../services/categories');
+let { isAdmin } = require('../middlewares/auth');
 
 router.get("/:id", (req, res) => {
 
@@ -15,7 +16,7 @@ router.get("/:id", (req, res) => {
         })
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", isAdmin, (req, res) => {
 
     deleteSubjectById(req.params.id)
         .then(response => {

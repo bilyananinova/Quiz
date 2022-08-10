@@ -1,5 +1,5 @@
 .container {
-    background-color: #fa4545c7;
+    background: var(--error-background-color);
     text-align: center;
     display: inline-block;
     position: absolute;
@@ -10,5 +10,5 @@
 }
 
 .warning {
-    color: #ffffff;
+    color: var(--error-font-color);
 }

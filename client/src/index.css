@@ -5,6 +5,8 @@
     --main-font-size: 20px;
     --main-background-color: linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec);
     --main-a-color: #ae00ff;
+    --error-background-color: #fa4545c7;
+    --error-font-color: #ffffff;
 
     --border-color:linear-gradient(to right, #42eeaf, #00ebe0, #00e3ff, #70d7ff, #a9cbff, #bfc7fd, #d3c3f7, #e4c0ee, #e7c4ed, #eac8ed, #edccec, #efd0ec);
 
