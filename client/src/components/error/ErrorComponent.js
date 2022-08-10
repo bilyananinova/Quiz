@@ -1,7 +1,6 @@
 import './ErrorComponent.css';
 
 function ErrorComponent({ message }) {
-    console.log(message);
 
     return (
         <>

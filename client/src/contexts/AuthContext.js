@@ -23,7 +23,7 @@ export let AuthProvider = ({
         let id = localStorage.getItem('user._id');
         let name = localStorage.getItem('user.name');
         let email = localStorage.getItem('user.email');
-        getUser(id, name, email)
+        getUser(id, name, email);
       }, [])
 
     let getUser = (id, name, email) => {

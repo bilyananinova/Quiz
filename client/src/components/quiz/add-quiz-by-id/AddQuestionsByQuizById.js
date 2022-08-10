@@ -14,7 +14,7 @@ function AddQuestionsByQuizById() {
         getOneQuizById(params.id)
             .then(result => {
                 setQuiz(result);
-                setQuestions(result.questions)
+                setQuestions(result.questions);
             })
     }, [params.id]);
 
@@ -43,13 +43,13 @@ function AddQuestionsByQuizById() {
 
         addQuestions(questions, params.id)
             .then(() => {
-                navigate('/');
+                navigate(-1);
             })
     }
 
     return (
         <>
-        
+
             <form className="question-form" onSubmit={postQuestionHandler}>
                 <h3 className="create-quiz-title">{quiz?.title}</h3>
                 <h5 className="create-quiz-subject">{quiz.subject?.name}</h5>

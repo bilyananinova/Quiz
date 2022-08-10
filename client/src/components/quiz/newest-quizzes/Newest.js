@@ -1,13 +1,19 @@
 import './Newest.css';
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
+import { getLastQuizzes, deleteQuiz } from '../../../services/quizServices';
 
 import QuizCard from './QuizCard';
-import { getLastQuizzes } from '../../../services/quizServices';
+import Dialog from '../../common/dialog/Dialog';
 
 function Newest() {
+    let navigate = useNavigate();
     let [list, setList] = React.useState([]);
     let params = useParams();
+    let [isLoading, setIsLoading] = React.useState(false);
+    let [message, setMessage] = React.useState('');
+    let [quizId, setQuizId] = React.useState('');
 
     React.useEffect(() => {
         getLastQuizzes(params.id)
@@ -15,17 +21,49 @@ function Newest() {
                 setList(result);
 
             })
-    }, [params.id])
+    }, [params.id, list]);
+
+    function handleDialog(isLoading, message, id) {
+        setIsLoading(isLoading);
+        setMessage(message);
+        setQuizId(id);
+    }
+
+    function isDelete(choose) {
+
+        if (choose) {
+            setIsLoading(false);
+            setMessage('');
+            deleteHandler(quizId);
+        } else {
+            setIsLoading(false);
+            setMessage('');
+            setQuizId('');
+        }
+
+    }
+
+    function deleteHandler(id) {
+        deleteQuiz(id)
+            .then(() => {
+                navigate(0);
+            })
+
+    }
 
     return (
         <>
+            {isLoading && <Dialog message={message} isDelete={isDelete} />}
+
             <section className="newest-quizzes-section">
                 {
                     list
                         .map((q, i) =>
                             <QuizCard
                                 key={q._id}
-                                quiz={q} />)
+                                quiz={q}
+                                handleDialog={handleDialog}
+                            />)
                 }
             </section>
         </>

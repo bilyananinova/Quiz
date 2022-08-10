@@ -1,0 +1,48 @@
+.dialog-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 3em;
+}
+
+.dialog-btns {
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.dialog-btns button {
+    padding: 0.5em 2em;
+    font-family: var(--main-font-family);
+    font-size: var(--button-font-size);
+    border: none;   
+    background-image: var(--main-background-color);
+    margin: 0.3em;
+}
+
+.cancel-btn:hover,
+.cancel-btn:focus {
+    cursor: pointer;
+    background: var(--button-hover-color);
+}
+
+.confirm-btn:hover,
+.confirm-btn:focus {
+    cursor: pointer;
+    background: var(--delete-button-hover-color);
+}
