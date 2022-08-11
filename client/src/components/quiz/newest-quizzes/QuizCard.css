@@ -14,7 +14,6 @@
 
 .start-button,
 .add-button,
-.edit-button,
 .delete-button {
     padding: 0.5em 1em;
     margin: 0 0.1em;
@@ -36,12 +35,6 @@
 .add-button:focus {
     cursor: pointer;
     background: var(--add-button-hover-color);
-}
-
-.edit-button:hover,
-.edit-button:focus {
-    cursor: pointer;
-    background: var(--edit-button-hover-color);
 }
 
 .delete-button:hover,
