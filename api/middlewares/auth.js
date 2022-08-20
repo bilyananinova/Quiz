@@ -7,7 +7,6 @@ exports.auth = function (req, res, next) {
     if (token) {
 
         let decoded = jwt.verify(token, SECRET);
-
         req.user = decoded;
         res.locals.user = decoded;
 
@@ -17,8 +16,7 @@ exports.auth = function (req, res, next) {
     if (!token) {
         return next();
     }
- 
-} 
+}
 
 exports.isLogged = function (req, res, next) {
 
@@ -31,7 +29,7 @@ exports.isLogged = function (req, res, next) {
 
 exports.isAdmin = function (req, res, next) {
 
-    if (res.locals.user.id == '62926423f378a92432513373') {
+    if (res.locals.user.id == '62926423f378a92432513373' || res.locals.user.id == '6300f2557d97f0f7228c6da7') {
         next();
     } else {
         return;

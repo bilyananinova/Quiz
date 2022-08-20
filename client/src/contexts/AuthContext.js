@@ -28,7 +28,7 @@ export let AuthProvider = ({
 
     let getUser = (id, name, email) => {
 
-        if (id === '62926423f378a92432513373') {
+        if (id === '62926423f378a92432513373' || id === '6300f2557d97f0f7228c6da7') {
             dispatch({
                 type: 'LOGIN',
                 payload: { id, name, email, isAdmin: true }
@@ -39,6 +39,11 @@ export let AuthProvider = ({
                 payload: { id, name, email, isAdmin: false }
             });
         } else if (id === undefined) {
+            dispatch({
+                type: 'LOGOUT',
+                payload: { id, name, email, isAdmin: false }
+            });
+        } else {
             dispatch({
                 type: 'LOGOUT',
                 payload: { id, name, email, isAdmin: false }
