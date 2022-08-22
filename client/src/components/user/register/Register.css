@@ -50,3 +50,17 @@
     outline: none;
 }
 
+/* tablets */
+@media (max-width: 900px) { 
+    .form-wrapper {
+        width: 80%;
+    }
+}
+
+/* phones */
+@media (max-width: 300px) { 
+    .form-wrapper {
+        width: 100%;
+    }
+
+}

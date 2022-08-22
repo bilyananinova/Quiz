@@ -29,3 +29,14 @@
 .home-link {
     color: var(--main-a-color);
 }
+
+/* phones */
+@media (max-width: 300px) { 
+    .quiz-card {
+        padding: 3em;
+    }
+
+    .try-again-button {
+        padding: 0.3em 1em;
+    }
+}

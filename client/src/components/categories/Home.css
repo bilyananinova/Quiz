@@ -1,5 +1,21 @@
 .categories-section {
     display: flex;
-    flex: 1 1 30%;
+    /* flex: 1 1 30%; */
     flex-wrap: wrap;
+}
+
+/* tablets */
+@media (max-width: 900px) { 
+    .categories-section {
+        justify-content: center;
+    }
+
+}
+
+/* phones */
+@media (max-width: 300px) { 
+    .categories-section {
+        justify-content: center;
+    }
+
 }

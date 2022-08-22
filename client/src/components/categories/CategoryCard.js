@@ -13,7 +13,7 @@ function CategoryCard({ cat, handleDialog }) {
     if (user?.id && user?.isAdmin) {
         buttons = <div>
             <Link to={`/subject/${cat._id}`} className="go-to-button">Continue</Link>
-            <button onClick={() => handleDialog(true, 'Are you sure you want to delete this subject?', cat._id)} className="delete-button">Delete</button>
+            <button onClick={() => handleDialog(true, 'Are you sure you want to delete this subject?', cat._id)} className="delete-category-button">Delete</button>
         </div>
     } else if (user?.id && !user?.isAdmin) {
         buttons = <div>

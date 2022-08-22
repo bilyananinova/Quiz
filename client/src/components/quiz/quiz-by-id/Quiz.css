@@ -45,3 +45,29 @@
     cursor: pointer;
     background: var(--button-hover-color);
 }
+
+/* phones */
+@media (max-width: 900px) { 
+
+    .score-div {
+        padding: 2em 0;
+        margin: 1em auto;
+    }
+
+    .go-home-btn {
+        padding: 0.5em;
+    }
+}
+
+/* phones */
+@media (max-width: 300px) { 
+
+    .score-div {
+        padding: 2em 0;
+        margin: 1em auto;
+    }
+
+    .go-home-btn {
+        padding: 0.5em;
+    }
+}

@@ -49,3 +49,10 @@
 .login-form input:hover {
     outline: none;
 }
+
+/* tablets */
+@media (max-width: 900px) { 
+    .form-wrapper {
+        width: 50%;
+    }
+}

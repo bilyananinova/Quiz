@@ -42,3 +42,28 @@
     cursor: pointer;
     background: var(--delete-button-hover-color);
 }
+
+/* tablets */
+@media (max-width: 900px) { 
+ 
+    .start-button,
+    .add-button,
+    .delete-button {
+        display: flex;
+        margin: 1em auto;
+    }
+}
+
+/* phones */
+@media (max-width: 300px) { 
+    .quiz-card {
+        padding: 2em;
+    }
+    
+    .start-button,
+    .add-button,
+    .delete-button {
+        display: flex;
+        margin: 1em;
+    }
+}

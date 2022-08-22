@@ -21,6 +21,7 @@ a {
 
 main {
   margin: 2em 0 5em;
+  min-height: 80vh;
 }
 
 h3 {

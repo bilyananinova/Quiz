@@ -17,3 +17,12 @@
 .answers-div input:first-child {
     margin-left: 0;
 }
+
+/* phones */
+@media (max-width: 300px) { 
+    .answers-div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}

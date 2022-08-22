@@ -42,7 +42,7 @@ function Login() {
     return (
         <>
             <h3>Login Page</h3>
-            <div className="form-wrapper">
+            <section className="form-wrapper">
                 <section className="form-section">
                     {error ? <ErrorComponent message={error} /> : null}
                     <form className="login-form" onSubmit={handleSubmit}>
@@ -54,7 +54,7 @@ function Login() {
                         <p>Don't have an account? <Link to="/user/register">Register</Link> now.</p>
                     </form>
                 </section>
-            </div>
+            </section>
         </>
     )
 

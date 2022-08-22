@@ -44,7 +44,7 @@ function Quizzes() {
     function deleteHandler(id) {
         deleteQuiz(id)
             .then(() => {
-                navigate(0);
+                navigate('/');
             })
     }
 
